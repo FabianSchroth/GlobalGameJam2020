@@ -11,7 +11,8 @@ public class Room : MonoBehaviour
     PointOfInterest m_PointOfInterest;
     Transform m_PointOfInterestPosition;
 
-    RoomStatus m_Status;
+    private RoomStatus m_Status;
+    public RoomStatus Status { get { return m_Status; } set { m_Status = value; OnRoomStatusChanged(); } }
 
     bool m_HasExitDown;
     bool m_HasExitUp;
@@ -22,24 +23,54 @@ public class Room : MonoBehaviour
 
     #region Functions
 
+    /// <summary>
+    /// TODO: Kommentar und Funktionalität
+    /// </summary>
     public void SetEndRoom()
     {
 
     }
 
+    /// <summary>
+    /// TODO: Kommentar und Funktionalität
+    /// </summary>
     public void SetRepairSpot()
     {
 
     }
 
+    /// <summary>
+    /// TODO: Kommentar und Funktionalität
+    /// </summary>
     public void SetEnemySpawner()
     {
 
     }
 
+    /// <summary>
+    /// TODO: Kommentar und Funktionalität
+    /// </summary>
     public void SetTreasureChest()
     {
 
+    }
+
+    /// <summary>
+    /// TODO: Kommentar und Funktionalität
+    /// </summary>
+    private void OnRoomStatusChanged()
+    {
+        switch (Status)
+        {
+            case RoomStatus.Unvisited:
+                break;
+            case RoomStatus.PlayerInside:
+                break;
+            case RoomStatus.Cleared:
+                break;
+            default:
+                break;
+        }
     }
 
     #endregion
@@ -48,7 +79,7 @@ public class Room : MonoBehaviour
 
     private void Start()
     {
-        m_Status = RoomStatus.Unvisited;
+        Status = RoomStatus.Unvisited;
     }
 
     #endregion

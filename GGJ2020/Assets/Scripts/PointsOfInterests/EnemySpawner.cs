@@ -18,7 +18,7 @@ public class EnemySpawner : PointOfInterest
 
     public override void OnClearedInterest()
     {
-        throw new System.NotImplementedException();
+        // TODO ClearedInterest Funktionalität
     }
 
     public void OnEnemyKilled()
@@ -27,7 +27,8 @@ public class EnemySpawner : PointOfInterest
 
         if (m_RemainingEnemys <= 0)
         {
-            // TODO Set Status To Cleared;
+            OnClearedInterest();
+            m_Room.Status = RoomStatus.Cleared;
         }
     }
 
