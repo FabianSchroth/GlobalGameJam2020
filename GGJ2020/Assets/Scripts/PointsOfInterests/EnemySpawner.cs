@@ -9,7 +9,6 @@ public class EnemySpawner : PointOfInterest
 
     int m_RemainingEnemys;
 
-
     #endregion
 
 
@@ -18,7 +17,7 @@ public class EnemySpawner : PointOfInterest
 
     public override void OnClearedInterest()
     {
-        // TODO ClearedInterest Funktionalität
+        // TODO ClearedInterest Funktionalität EnemySpawner
     }
 
     public void OnEnemyKilled()

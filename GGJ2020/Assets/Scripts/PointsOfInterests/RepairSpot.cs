@@ -4,8 +4,22 @@ using UnityEngine;
 
 public class RepairSpot : PointOfInterest
 {
+
+    #region Members / Properties / Constants
+
+    public int RemainingMaterialsToRepair { get; set; }
+
+    #endregion
+
+    #region Functions
+
+    /// <summary>
+    /// TODO: Kommentar
+    /// </summary>
     public override void OnClearedInterest()
     {
-        throw new System.NotImplementedException();
+        GameManager.Instance.RepairSpotIsRepaired();
     }
+
+    #endregion
 }
