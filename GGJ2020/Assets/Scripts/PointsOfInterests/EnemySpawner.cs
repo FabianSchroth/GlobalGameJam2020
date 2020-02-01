@@ -7,7 +7,7 @@ public class EnemySpawner : PointOfInterest
 
     #region Members / Properties / Constants
 
-    int m_RemainingEnemys;
+    public int RemainingEnemys { get; set; }
 
     #endregion
 
@@ -22,9 +22,9 @@ public class EnemySpawner : PointOfInterest
 
     public void OnEnemyKilled()
     {
-        m_RemainingEnemys--;
+        RemainingEnemys--;
 
-        if (m_RemainingEnemys <= 0)
+        if (RemainingEnemys <= 0)
         {
             OnClearedInterest();
             m_Room.Status = RoomStatus.Cleared;
