@@ -12,5 +12,12 @@ public abstract class Projectile : MonoBehaviour
         get => m_Speed;
     }
 
+    [SerializeField]
+    protected float m_Lifetime;
+    public float Lifetime
+    {
+        get => m_Lifetime;
+    }
+
     protected abstract void HitSomething(Collision _collision);
 }

@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shotgun : MonoBehaviour
+public class Shotgun : Weapon
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private int m_ProjectileCount = 4;
 
-    // Update is called once per frame
-    void Update()
+    public override void Shoot()
     {
-        
+        for (int i = 0; i < m_ProjectileCount; i++)
+        {
+            Projectile proj = Instantiate(m_ProjectilePrefab, m_SpawnPointProjectile.position, Quaternion.LookRotation(transform.forward + transform.right * Random.Range(-0.5f,0.5f)));
+        }
     }
 }

@@ -14,6 +14,9 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField]
     protected Transform m_SpawnPointProjectile;
 
+    [SerializeField]
+    protected Projectile m_ProjectilePrefab;
+
     public abstract void Shoot();
 
     #endregion
