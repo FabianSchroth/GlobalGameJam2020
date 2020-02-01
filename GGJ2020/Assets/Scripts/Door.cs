@@ -18,21 +18,13 @@ public class Door : MonoBehaviour
         if (_other.CompareTag("Player"))
         {
             if (m_Room.m_TopDoor == this && !IsLocked)
-            {
                 GameManager.Instance.EnterNewRoom(MoveDirection.Top);
-            }
             else if (m_Room.m_DownDoor == this && !IsLocked)
-            {
                 GameManager.Instance.EnterNewRoom(MoveDirection.Down);
-            }
             else if (m_Room.m_LeftDoor == this && !IsLocked)
-            {
                 GameManager.Instance.EnterNewRoom(MoveDirection.Left);
-            }
             else if (m_Room.m_RightDoor == this && !IsLocked)
-            {
                 GameManager.Instance.EnterNewRoom(MoveDirection.Right);
-            }
         }
     }
 

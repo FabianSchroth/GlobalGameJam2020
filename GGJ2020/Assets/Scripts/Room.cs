@@ -74,7 +74,7 @@ public class Room : MonoBehaviour
     }
 
     /// <summary>
-    /// TODO: Kommentar und Funktionalität
+    /// Called when the room is defined as the end room
     /// </summary>
     public void SetEndRoom()
     {
@@ -82,7 +82,7 @@ public class Room : MonoBehaviour
     }
 
     /// <summary>
-    /// TODO: Kommentar und Funktionalität
+    /// Called when the room contains a RepairSpot
     /// </summary>
     public void SetRepairSpot()
     {
@@ -90,7 +90,7 @@ public class Room : MonoBehaviour
     }
 
     /// <summary>
-    /// TODO: Kommentar und Funktionalität
+    /// Called when the room contains an EnemySpawner
     /// </summary>
     public void SetEnemySpawner()
     {
@@ -98,7 +98,7 @@ public class Room : MonoBehaviour
     }
 
     /// <summary>
-    /// TODO: Kommentar und Funktionalität
+    /// Called when the room is defined as the TreasureRoom
     /// </summary>
     public void SetTreasureChest()
     {
@@ -106,7 +106,7 @@ public class Room : MonoBehaviour
     }
 
     /// <summary>
-    /// TODO: Kommentar und Funktionalität
+    /// Called when the player enters or clears the room
     /// </summary>
     private void OnRoomStatusChanged()
     {
@@ -126,6 +126,7 @@ public class Room : MonoBehaviour
 
     private void OnPlayerEnter()
     {
+        //TODO: Fixe TransformPoints für Positionswechsel?
         switch (GameManager.Instance.m_MoveDirection)
         {
             case MoveDirection.Top:

@@ -189,7 +189,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void CheckForEnemySpawnerDrop()
     {
-        // TODO: Roll Die and Spawn Stuff
+        // TODO: Roll Dice and Spawn Stuff
     }
 
     /// <summary>
