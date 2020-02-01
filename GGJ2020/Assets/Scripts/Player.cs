@@ -9,6 +9,9 @@ public class Player : MonoBehaviour
 
     #region Members / Properties / Constants
 
+    private static Player m_Instance;
+    public static Player Instance { get { return m_Instance; } set { m_Instance = value; } }
+
     int m_RemainingHealth;
     int m_MaxHealth;
 
@@ -77,6 +80,23 @@ public class Player : MonoBehaviour
         {
             // TODO: Game Over
         }
+    }
+
+    #endregion
+
+    #region Unity Lifecycle
+
+    private void Awake()
+    {
+        if (m_Instance != null && m_Instance != this)
+            Destroy(this.gameObject);
+        else
+            m_Instance = this;
+    }
+
+    private void Start()
+    {
+        DontDestroyOnLoad(this.gameObject);
     }
 
     #endregion
