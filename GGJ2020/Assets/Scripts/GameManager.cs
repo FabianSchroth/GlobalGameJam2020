@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     private List<GameObject> m_WeaponPrefabs;
     [SerializeField]
     private List<GameObject> m_BuffPrefabs;
+    public List<GameObject> m_EnemyPrefabs;
     public GameObject m_MimicPrefab;
     public GameObject m_RegenerateHealthPrefab;
     public GameObject m_RepairCurrencyPrefab;

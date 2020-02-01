@@ -131,29 +131,93 @@ public class Room : MonoBehaviour
 
     private void OnPlayerEnter()
     {
+        int enemyAmount = 0;
+
+        if (m_PointOfInterest is EnemySpawner)
+        {
+            LockDoors();
+            enemyAmount = GameManager.Instance.RollDice(3) + 1;
+            EnemySpawner enemySpawner = m_PointOfInterest as EnemySpawner;
+            enemySpawner.RemainingEnemys = enemyAmount;
+        }
+
         //TODO: Fixe TransformPoints für Positionswechsel?
         switch (GameManager.Instance.m_MoveDirection)
         {
             case MoveDirection.Top:
                 GameManager.Instance.m_Player.transform.position = m_DownSpawnPointPlayer.position;
+                // Spawn Up To 3 Enemies
+                if (enemyAmount > 0)
+                {
+                    Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], m_LeftSpawnPointPlayer.position, Quaternion.identity);
+                    enemyAmount--;
+
+                    if (enemyAmount > 0)
+                    {
+                        Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], m_TopSpawnPointPlayer.position, Quaternion.identity);
+                        enemyAmount--;
+
+                        if (enemyAmount > 0)
+                            Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], m_RightSpawnPointPlayer.position, Quaternion.identity);
+                    }
+                }
                 break;
             case MoveDirection.Down:
                 GameManager.Instance.m_Player.transform.position = m_TopSpawnPointPlayer.position;
+                // Spawn Up To 3 Enemies
+                if (enemyAmount > 0)
+                {
+                    Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], m_RightSpawnPointPlayer.position, Quaternion.identity);
+                    enemyAmount--;
+
+                    if (enemyAmount > 0)
+                    {
+                        Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], m_DownSpawnPointPlayer.position, Quaternion.identity);
+                        enemyAmount--;
+
+                        if (enemyAmount > 0)
+                            Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], m_LeftSpawnPointPlayer.position, Quaternion.identity);
+                    }
+                }
                 break;
             case MoveDirection.Left:
                 GameManager.Instance.m_Player.transform.position = m_RightSpawnPointPlayer.position;
+                // Spawn Up To 3 Enemies
+                if (enemyAmount > 0)
+                {
+                    Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], m_DownSpawnPointPlayer.position, Quaternion.identity);
+                    enemyAmount--;
+
+                    if (enemyAmount > 0)
+                    {
+                        Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], m_LeftSpawnPointPlayer.position, Quaternion.identity);
+                        enemyAmount--;
+
+                        if (enemyAmount > 0)
+                            Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], m_TopSpawnPointPlayer.position, Quaternion.identity);
+                    }
+                }
                 break;
             case MoveDirection.Right:
                 GameManager.Instance.m_Player.transform.position = m_LeftSpawnPointPlayer.position;
+                // Spawn Up To 3 Enemies
+                if (enemyAmount > 0)
+                {
+                    Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], m_TopSpawnPointPlayer.position, Quaternion.identity);
+                    enemyAmount--;
+
+                    if (enemyAmount > 0)
+                    {
+                        Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], m_RightSpawnPointPlayer.position, Quaternion.identity);
+                        enemyAmount--;
+
+                        if (enemyAmount > 0)
+                            Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], m_DownSpawnPointPlayer.position, Quaternion.identity);
+                    }
+                }
                 break;
             default:
                 break;
-        }
-
-        // When PoI is EnemySpawner, lock the doors
-        if (m_PointOfInterest is EnemySpawner)
-        {
-            LockDoors();
         }
     }
 
