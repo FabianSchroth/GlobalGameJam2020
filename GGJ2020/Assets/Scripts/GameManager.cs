@@ -144,7 +144,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Called when the player decides to enter a new room
     /// </summary>
-    public void EnterRoom(MoveDirection _direction)
+    public void EnterNewRoom(MoveDirection _direction)
     {
         switch (_direction)
         {

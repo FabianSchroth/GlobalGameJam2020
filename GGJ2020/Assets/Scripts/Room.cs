@@ -8,16 +8,17 @@ public class Room : MonoBehaviour
     #region Members / Properties / Constants
 
     GameObject m_RoomPrefab;
+    [HideInInspector]
     public PointOfInterest m_PointOfInterest;
     public Transform m_PointOfInterestPosition;
 
     private RoomStatus m_Status;
     public RoomStatus Status { get { return m_Status; } set { m_Status = value; OnRoomStatusChanged(); } }
 
-    public GameObject m_TopDoor;
-    public GameObject m_DownDoor;
-    public GameObject m_LeftDoor;
-    public GameObject m_RightDoor;
+    public Door m_TopDoor;
+    public Door m_DownDoor;
+    public Door m_LeftDoor;
+    public Door m_RightDoor;
 
     public GameObject m_TopWall;
     public GameObject m_DownWall;
@@ -25,26 +26,46 @@ public class Room : MonoBehaviour
     public GameObject m_RightWall;
 
     private bool m_HasExitTop;
-    public bool HasExitTop { get { return m_HasExitTop; } set { m_HasExitTop = value; m_TopDoor.SetActive(value); m_TopWall.SetActive(!value); } }
+    public bool HasExitTop { get { return m_HasExitTop; } set { m_HasExitTop = value; m_TopDoor.gameObject.SetActive(value); m_TopWall.SetActive(!value); } }
     private bool m_HasExitDown;
-    public bool HasExitDown { get { return m_HasExitDown; } set { m_HasExitDown = value; m_DownDoor.SetActive(value); m_DownWall.SetActive(!value); } }
+    public bool HasExitDown { get { return m_HasExitDown; } set { m_HasExitDown = value; m_DownDoor.gameObject.SetActive(value); m_DownWall.SetActive(!value); } }
     private bool m_HasExitLeft;
-    public bool HasExitLeft { get { return m_HasExitLeft; } set { m_HasExitLeft = value; m_LeftDoor.SetActive(value); m_LeftWall.SetActive(!value); } }
+    public bool HasExitLeft { get { return m_HasExitLeft; } set { m_HasExitLeft = value; m_LeftDoor.gameObject.SetActive(value); m_LeftWall.SetActive(!value); } }
     private bool m_HasExitRight;
-    public bool HasExitRight { get { return m_HasExitRight; } set { m_HasExitRight = value; m_RightDoor.SetActive(value); m_RightWall.SetActive(!value); } }
+    public bool HasExitRight { get { return m_HasExitRight; } set { m_HasExitRight = value; m_RightDoor.gameObject.SetActive(value); m_RightWall.SetActive(!value); } }
 
     #endregion
 
     #region Functions
 
+    /// <summary>
+    /// Locks all doors of a room so the player can not switch the room
+    /// </summary>
     public void LockDoors()
     {
-
+        if (HasExitTop)
+            m_TopDoor.IsLocked = true;
+        if (HasExitDown)
+            m_DownDoor.IsLocked = true;
+        if (HasExitLeft)
+            m_LeftDoor.IsLocked = true;
+        if (HasExitRight)
+            m_RightDoor.IsLocked = true;
     }
 
+    /// <summary>
+    /// Unlocks all doors of a room so the player can switch the room
+    /// </summary>
     public void UnlockDoors()
     {
-
+        if (HasExitTop)
+            m_TopDoor.IsLocked = false;
+        if (HasExitDown)
+            m_DownDoor.IsLocked = false;
+        if (HasExitLeft)
+            m_LeftDoor.IsLocked = false;
+        if (HasExitRight)
+            m_RightDoor.IsLocked = false;
     }
 
     public void SetStartRoom()
