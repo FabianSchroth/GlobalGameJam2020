@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private EndRoom m_EndRoom;
 
+    [SerializeField]
+    private Texture2D m_Cursor;
+
     #endregion
 
     #region Functions
@@ -130,6 +133,7 @@ public class GameManager : MonoBehaviour
     {
         m_StageIndex = 1;
         DontDestroyOnLoad(this.gameObject);
+        Cursor.SetCursor(m_Cursor, Vector2.zero, CursorMode.ForceSoftware);
     }
 
     #endregion

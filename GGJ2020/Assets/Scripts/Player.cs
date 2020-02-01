@@ -45,7 +45,10 @@ public class Player : MonoBehaviour
 
     private void LookDirection()
     {
-        Vector3 direction = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);        
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 playerPos = Camera.main.WorldToScreenPoint(transform.position);
+        Vector3 direction = mousePos - playerPos;
+        transform.rotation = Quaternion.Euler(0,Vector3.Angle(Vector3.up, direction) * ((mousePos.x > playerPos.x) ? 1:-1),0);
     }
 
     /// <summary>
