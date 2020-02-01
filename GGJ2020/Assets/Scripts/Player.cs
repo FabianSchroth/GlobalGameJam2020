@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(CharacterController))]
 public class Player : MonoBehaviour
 {
 
@@ -23,11 +22,11 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float m_Speed = 7;
 
-    private CharacterController m_CharacterController;
-
     private PlayerControls m_Controls;
 
     private Vector2 moveInput;
+
+    private Rigidbody m_Rb;
 
     #endregion
 
@@ -43,7 +42,7 @@ public class Player : MonoBehaviour
         float hor = moveInput.x;
         float vert = moveInput.y;
 
-        m_CharacterController.Move(new Vector3(hor,0, vert) * m_Speed * Time.deltaTime);
+        m_Rb.MovePosition(transform .position + new Vector3(hor,0, vert) * m_Speed * Time.deltaTime);
     }
 
     private void LookDirection()
@@ -81,7 +80,7 @@ public class Player : MonoBehaviour
         else
             m_Instance = this;
 
-        m_CharacterController = GetComponent<CharacterController>();
+        m_Rb = GetComponent<Rigidbody>();
 
         m_Controls = new PlayerControls();
 
