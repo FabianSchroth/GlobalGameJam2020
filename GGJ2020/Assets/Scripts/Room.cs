@@ -25,6 +25,11 @@ public class Room : MonoBehaviour
     public GameObject m_LeftWall;
     public GameObject m_RightWall;
 
+    public Transform m_TopSpawnPointPlayer;
+    public Transform m_DownSpawnPointPlayer;
+    public Transform m_LeftSpawnPointPlayer;
+    public Transform m_RightSpawnPointPlayer;
+
     private bool m_HasExitTop;
     public bool HasExitTop { get { return m_HasExitTop; } set { m_HasExitTop = value; m_TopDoor.gameObject.SetActive(value); m_TopWall.SetActive(!value); } }
     private bool m_HasExitDown;
@@ -130,16 +135,16 @@ public class Room : MonoBehaviour
         switch (GameManager.Instance.m_MoveDirection)
         {
             case MoveDirection.Top:
-                GameManager.Instance.m_Player.transform.position = m_DownDoor.transform.position + new Vector3(0,0,GameManager.PLAYER_SPAWN_OFFSET);
+                GameManager.Instance.m_Player.transform.position = m_DownSpawnPointPlayer.position;
                 break;
             case MoveDirection.Down:
-                GameManager.Instance.m_Player.transform.position = m_TopDoor.transform.position - new Vector3(0, 0, GameManager.PLAYER_SPAWN_OFFSET);
+                GameManager.Instance.m_Player.transform.position = m_TopSpawnPointPlayer.position;
                 break;
             case MoveDirection.Left:
-                GameManager.Instance.m_Player.transform.position = m_RightDoor.transform.position - new Vector3(GameManager.PLAYER_SPAWN_OFFSET, 0, 0);
+                GameManager.Instance.m_Player.transform.position = m_RightSpawnPointPlayer.position;
                 break;
             case MoveDirection.Right:
-                GameManager.Instance.m_Player.transform.position = m_RightDoor.transform.position + new Vector3(GameManager.PLAYER_SPAWN_OFFSET, 0, 0);
+                GameManager.Instance.m_Player.transform.position = m_LeftSpawnPointPlayer.position;
                 break;
             default:
                 break;
