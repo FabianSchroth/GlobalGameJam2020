@@ -27,6 +27,12 @@ public class GameManager : MonoBehaviour
     public GameObject m_RegenerateHealthPrefab;
     public GameObject m_RepairCurrencyPrefab;
 
+    public GameObject m_EnemySpawnerPoIPrefab;
+    public GameObject m_RepairSpotPoIPrefab;
+    public GameObject m_EndRoomPoIPrefab;
+    public GameObject m_StartRoomPoIPrefab;
+    public GameObject m_TreasureRoomPoIPrefab;
+
     [SerializeField]
     private int m_RepairSpotsToRepair;
     [SerializeField]
@@ -85,7 +91,7 @@ public class GameManager : MonoBehaviour
                 diceRollX = RollDice(5);
                 diceRollY = RollDice(5);
 
-                if (m_Map[diceRollX,diceRollY].m_PointOfInterest is EnemySpawner)
+                if (m_Map[diceRollX,diceRollY].m_PointOfInterestComponent is EnemySpawner)
                 {
                     m_Map[diceRollX, diceRollY].SetRepairSpot();
                     m_RepairSpotsToRepair++;
@@ -98,10 +104,10 @@ public class GameManager : MonoBehaviour
                     diceRollX = RollDice(5);
                     diceRollY = RollDice(5);
 
-                    if (m_Map[diceRollX, diceRollY].m_PointOfInterest is EnemySpawner)
+                    if (m_Map[diceRollX, diceRollY].m_PointOfInterestComponent is EnemySpawner)
                     {
                         m_Map[diceRollX, diceRollY].SetEndRoom();
-                        m_EndRoom = m_Map[diceRollX, diceRollY].m_PointOfInterest as EndRoom;
+                        m_EndRoom = m_Map[diceRollX, diceRollY].m_PointOfInterestComponent as EndRoom;
                         endRoomSet = true;
                     }
                 }
@@ -112,7 +118,7 @@ public class GameManager : MonoBehaviour
                         diceRollX = RollDice(5);
                         diceRollY = RollDice(5);
 
-                        if (m_Map[diceRollX, diceRollY].m_PointOfInterest is EnemySpawner)
+                        if (m_Map[diceRollX, diceRollY].m_PointOfInterestComponent is EnemySpawner)
                         {
                             m_Map[diceRollX, diceRollY].SetTreasureChest();
                             treasureRoomSet = true;

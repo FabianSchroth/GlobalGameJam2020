@@ -9,7 +9,8 @@ public class Room : MonoBehaviour
 
     GameObject m_RoomPrefab;
     [HideInInspector]
-    public PointOfInterest m_PointOfInterest;
+    public GameObject m_PointOfInterest;
+    public PointOfInterest m_PointOfInterestComponent;
     public Transform m_PointOfInterestPosition;
 
     private RoomStatus m_Status;
@@ -73,9 +74,13 @@ public class Room : MonoBehaviour
             m_RightDoor.IsLocked = false;
     }
 
+    /// <summary>
+    /// Defines the room as the Start Room
+    /// </summary>
     public void SetStartRoom()
     {
-        this.m_PointOfInterest = new StartRoom();
+        this.m_PointOfInterest = Instantiate(GameManager.Instance.m_StartRoomPoIPrefab, m_PointOfInterestPosition);
+        this.m_PointOfInterestComponent = this.m_PointOfInterest.GetComponent<PointOfInterest>();
     }
 
     /// <summary>
@@ -83,7 +88,8 @@ public class Room : MonoBehaviour
     /// </summary>
     public void SetEndRoom()
     {
-        this.m_PointOfInterest = new EndRoom();
+        this.m_PointOfInterest = Instantiate(GameManager.Instance.m_EndRoomPoIPrefab, m_PointOfInterestPosition);
+        this.m_PointOfInterestComponent = this.m_PointOfInterest.GetComponent<PointOfInterest>();
     }
 
     /// <summary>
@@ -91,7 +97,8 @@ public class Room : MonoBehaviour
     /// </summary>
     public void SetRepairSpot()
     {
-        this.m_PointOfInterest = new RepairSpot();
+        this.m_PointOfInterest = Instantiate(GameManager.Instance.m_RepairSpotPoIPrefab, m_PointOfInterestPosition);
+        this.m_PointOfInterestComponent = this.m_PointOfInterest.GetComponent<PointOfInterest>();
     }
 
     /// <summary>
@@ -99,7 +106,8 @@ public class Room : MonoBehaviour
     /// </summary>
     public void SetEnemySpawner()
     {
-        this.m_PointOfInterest = new EnemySpawner();
+        this.m_PointOfInterest = Instantiate(GameManager.Instance.m_EnemySpawnerPoIPrefab, m_PointOfInterestPosition);
+        this.m_PointOfInterestComponent = this.m_PointOfInterest.GetComponent<PointOfInterest>();
     }
 
     /// <summary>
@@ -107,7 +115,8 @@ public class Room : MonoBehaviour
     /// </summary>
     public void SetTreasureChest()
     {
-        this.m_PointOfInterest = new TreasureChest();
+        this.m_PointOfInterest = Instantiate(GameManager.Instance.m_TreasureRoomPoIPrefab, m_PointOfInterestPosition);
+        this.m_PointOfInterestComponent = this.m_PointOfInterest.GetComponent<PointOfInterest>();
     }
 
     /// <summary>
@@ -133,11 +142,11 @@ public class Room : MonoBehaviour
     {
         int enemyAmount = 0;
 
-        if (m_PointOfInterest is EnemySpawner)
+        if (m_PointOfInterestComponent is EnemySpawner)
         {
             LockDoors();
             enemyAmount = GameManager.Instance.RollDice(3) + 1;
-            EnemySpawner enemySpawner = m_PointOfInterest as EnemySpawner;
+            EnemySpawner enemySpawner = m_PointOfInterestComponent as EnemySpawner;
             enemySpawner.RemainingEnemys = enemyAmount;
         }
 
