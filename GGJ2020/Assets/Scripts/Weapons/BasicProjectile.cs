@@ -22,6 +22,7 @@ public class BasicProjectile : Projectile
     private void Start()
     {
         GetComponent<Rigidbody>().AddForce(transform.forward * Speed);
+        Destroy(this.gameObject, Lifetime);
     }
 
     private void OnCollisionEnter(Collision collision)
