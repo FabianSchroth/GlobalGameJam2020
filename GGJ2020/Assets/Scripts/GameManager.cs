@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     // Prefabs
     [SerializeField]
+    private List<GameObject> m_RoomPrefabs;
+    [SerializeField]
     private List<GameObject> m_WeaponPrefabs;
     [SerializeField]
     private List<GameObject> m_BuffPrefabs;
@@ -26,9 +28,96 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private EndRoom m_EndRoom;
 
+    public const int ROOM_OFFSET = 50; 
+
     #endregion
 
     #region Functions
+
+    private void CreateMap()
+    {
+        MazeGenerator mazeGenerator = new MazeGenerator();
+        MazeCell[,] mazeCells = mazeGenerator.GenerateMaze(5, 5, RollDice(1000));
+        int mazeCellSizeX = mazeCells.GetLength(0);
+        int mazeCellSizeY = mazeCells.GetLength(1);
+
+        m_Map = new Room[mazeCellSizeX, mazeCellSizeY];
+
+        for (int x = 0; x < mazeCellSizeX; x++)
+        {
+            for (int y = 0; y < mazeCellSizeY; y++)
+            {
+                GameObject room = Instantiate(m_RoomPrefabs[RollDice(m_RoomPrefabs.Count)], new Vector3 (x * ROOM_OFFSET, 0, y * ROOM_OFFSET), Quaternion.identity);
+                m_Map[x, y] = room.GetComponent<Room>();
+
+                // Set Exits
+                m_Map[x, y].HasExitTop = mazeCells[x, y].top;
+                m_Map[x, y].HasExitDown = mazeCells[x, y].down;
+                m_Map[x, y].HasExitLeft = mazeCells[x, y].left;
+                m_Map[x, y].HasExitRight = mazeCells[x, y].right;
+
+                // Set Enemy Spawner As Default
+                m_Map[x, y].SetEnemySpawner();
+            }
+        }
+
+        // Overwrite PoIs for needed PoIs
+        m_Map[3, 3].SetStartRoom();
+
+        int diceRollX;
+        int diceRollY;
+        bool PoIsSet = false;
+        bool endRoomSet = false;
+        bool treasureRoomSet = false;
+
+        do
+        {
+            if (m_RepairSpotsToRepair < 4)
+            {
+                diceRollX = RollDice(5);
+                diceRollY = RollDice(5);
+
+                if (m_Map[diceRollX,diceRollY].m_PointOfInterest is EnemySpawner)
+                {
+                    m_Map[diceRollX, diceRollY].SetRepairSpot();
+                    m_RepairSpotsToRepair++;
+                }
+            }
+            else
+            {
+                if (!endRoomSet)
+                {
+                    diceRollX = RollDice(5);
+                    diceRollY = RollDice(5);
+
+                    if (m_Map[diceRollX, diceRollY].m_PointOfInterest is EnemySpawner)
+                    {
+                        m_Map[diceRollX, diceRollY].SetEndRoom();
+                        m_EndRoom = m_Map[diceRollX, diceRollY].m_PointOfInterest as EndRoom;
+                        endRoomSet = true;
+                    }
+                }
+                else
+                {
+                    if (!treasureRoomSet)
+                    {
+                        diceRollX = RollDice(5);
+                        diceRollY = RollDice(5);
+
+                        if (m_Map[diceRollX, diceRollY].m_PointOfInterest is EnemySpawner)
+                        {
+                            m_Map[diceRollX, diceRollY].SetTreasureChest();
+                            treasureRoomSet = true;
+                        }
+                    }
+                    else
+                        PoIsSet = true;
+                }
+            }
+        } while (!PoIsSet);
+
+    }
+
 
     /// <summary>
     /// Start function for game over situation
@@ -130,6 +219,7 @@ public class GameManager : MonoBehaviour
     {
         m_StageIndex = 1;
         DontDestroyOnLoad(this.gameObject);
+        CreateMap();
     }
 
     #endregion

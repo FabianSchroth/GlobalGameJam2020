@@ -11,6 +11,14 @@ public class MazeGenerator
 
         MazeCell[,] maze = new MazeCell[_x,_y];
 
+        for (int x = 0; x < maze.GetLength(0); x++)
+        {
+            for (int y = 0; y < maze.GetLength(1); y++)
+            {
+                maze[x, y] = new MazeCell();
+            }
+        }
+
         // algorithm here
         Vector2Int currentPos = new Vector2Int(0, 0);
         int counterFilled = 0;
@@ -58,7 +66,7 @@ public class MazeGenerator
 
                 currentPos = nextPosition;
             }
-            else if (backtrackStack.Count > 0)            
+            else if (backtrackStack.Count > 0)
             {
                 currentPos = backtrackStack.Pop();
             }

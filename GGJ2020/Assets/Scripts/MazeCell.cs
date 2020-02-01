@@ -7,13 +7,13 @@ public class MazeCell
 {
     public bool visited = false;
 
-    public bool north, south, east, west;
+    public bool top, down, left, right;
 
     public MazeCell()
     {
-        north = false;
-        south = false;
-        east = false;
-        west = false;
+        top = false;
+        down = false;
+        left = false;
+        right = false;
     }
 }
