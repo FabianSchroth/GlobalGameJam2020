@@ -229,7 +229,7 @@ public class GameManager : MonoBehaviour
     {
         m_StageIndex = 1;
         DontDestroyOnLoad(this.gameObject);
-        Cursor.SetCursor(m_Cursor, Vector2.zero, CursorMode.ForceSoftware);
+        Cursor.SetCursor(m_Cursor, new Vector2(32,28), CursorMode.ForceSoftware);
         CreateMap();
     }
 
