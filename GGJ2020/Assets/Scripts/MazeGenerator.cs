@@ -3,21 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MazeGenerator : MonoBehaviour
+public class MazeGenerator
 {
-    const float WALLOFFSET = 3;
-
-    [SerializeField]
-    GameObject m_WallPrefab;
-    [SerializeField]
-    GameObject m_FloorPrefab;
-
-    [SerializeField]
-    Vector2Int m_Size;
-
-    [SerializeField]
-    int m_Seed;
-
     public MazeCell[,] GenerateMaze(int _x, int _y, int _seed)
     {
         System.Random rng = new System.Random(_seed);
