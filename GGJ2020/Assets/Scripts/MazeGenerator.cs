@@ -37,18 +37,22 @@ public class MazeGenerator
                 if (direction == Vector2Int.up)
                 {
                     maze[currentPos.x, currentPos.y].north = true;
+                    maze[currentPos.x, currentPos.y+1].south = true;
                 }
                 else if (direction == Vector2Int.down)
                 {
                     maze[currentPos.x, currentPos.y].south = true;
+                    maze[currentPos.x, currentPos.y-1].north = true;
                 }
                 else if (direction == Vector2Int.left)
                 {
                     maze[currentPos.x, currentPos.y].west = true;
+                    maze[currentPos.x-1, currentPos.y].east = true;
                 }
                 else if (direction == Vector2Int.right)
                 {
                     maze[currentPos.x, currentPos.y].east = true;
+                    maze[currentPos.x+1, currentPos.y].west = true;
                 }
 
 
