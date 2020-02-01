@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     private Room[,] m_Map;
     private int m_StageIndex;
 
+    public Player m_Player;
+    public MoveDirection m_MoveDirection;
+
     // Prefabs
     [SerializeField]
     private List<GameObject> m_RoomPrefabs;
@@ -31,7 +34,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Texture2D m_Cursor;
 
-    public const int ROOM_OFFSET = 50; 
+    public const int ROOM_OFFSET = 50;
+    public const float PLAYER_SPAWN_OFFSET = 5f;
 
     #endregion
 
@@ -146,6 +150,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void EnterNewRoom(MoveDirection _direction)
     {
+        m_MoveDirection = _direction;
+
         switch (_direction)
         {
             case MoveDirection.Top:
