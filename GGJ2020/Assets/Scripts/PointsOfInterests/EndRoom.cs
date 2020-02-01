@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndRoom : PointOfInterest
 {
@@ -14,11 +15,19 @@ public class EndRoom : PointOfInterest
 
     #region Functions
 
+    /// <summary>
+    /// Player finished the current stage -> Increase the stageIndex and generate a new stage by reloading the game scene
+    /// </summary>
     public override void OnClearedInterest()
     {
-        // TODO: Load Next Level
+        GameManager.Instance.m_StageIndex++;
+        SceneManager.LoadScene(1);
     }
 
+    /// <summary>
+    /// TODO Kommentar
+    /// </summary>
+    /// <param name="_value"></param>
     private void OnDoorIsOpen(bool _value)
     {
         if (_value)

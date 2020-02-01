@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     private Vector2Int m_CurrentRoomIndex;
     private Room[,] m_Map;
-    private int m_StageIndex;
+    public int m_StageIndex;
 
     public Player m_Player;
     public MoveDirection m_MoveDirection;
