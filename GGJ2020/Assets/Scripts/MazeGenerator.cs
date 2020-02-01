@@ -49,19 +49,19 @@ public class MazeGenerator : MonoBehaviour
                 Vector2Int direction = nextPosition - currentPos;
                 if (direction == Vector2Int.up)
                 {
-                    maze[currentPos.x, currentPos.y].north = false;
+                    maze[currentPos.x, currentPos.y].north = true;
                 }
                 else if (direction == Vector2Int.down)
                 {
-                    maze[currentPos.x, currentPos.y].south = false;
+                    maze[currentPos.x, currentPos.y].south = true;
                 }
                 else if (direction == Vector2Int.left)
                 {
-                    maze[currentPos.x, currentPos.y].west = false;
+                    maze[currentPos.x, currentPos.y].west = true;
                 }
                 else if (direction == Vector2Int.right)
                 {
-                    maze[currentPos.x, currentPos.y].east = false;
+                    maze[currentPos.x, currentPos.y].east = true;
                 }
 
 
