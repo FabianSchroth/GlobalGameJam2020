@@ -11,5 +11,7 @@ public abstract class Weapon : MonoBehaviour
     private int Damage { get; set; }
     private int AttackSpeed { get; set; }
 
+    public abstract void Shoot();
+
     #endregion
 }

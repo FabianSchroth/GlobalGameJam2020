@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -13,6 +12,14 @@ public class GameManager : MonoBehaviour
     private Room[,] m_Map;
     private int m_StageIndex;
 
+    // Prefabs
+    [SerializeField]
+    private List<GameObject> m_WeaponPrefabs;
+    [SerializeField]
+    private List<GameObject> m_BuffPrefabs;
+    public GameObject m_MimicPrefab;
+    public GameObject m_RegenerateHealthPrefab;
+    public GameObject m_RepairCurrencyPrefab;
 
     [SerializeField]
     private int m_RepairSpotsToRepair;
@@ -24,7 +31,18 @@ public class GameManager : MonoBehaviour
     #region Functions
 
     /// <summary>
-    /// TODO Kommentar:
+    /// "Rolls a dice" to get a random integer value in a given range
+    /// </summary>
+    /// <param name="_excludedMaxValue">The excluded max value</param>
+    /// <returns>The random integer</returns>
+    public int RollDice(int _excludedMaxValue)
+    {
+        System.Random random = new System.Random();
+        return random.Next(0, _excludedMaxValue);
+    }
+
+    /// <summary>
+    /// Called when the player decides to enter a new room
     /// </summary>
     public void EnterRoom(MoveDirection _direction)
     {
@@ -58,6 +76,34 @@ public class GameManager : MonoBehaviour
 
         if (m_RepairSpotsToRepair <= 0)
             m_EndRoom.DoorIsOpen = true;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public void CheckForEnemySpawnerDrop()
+    {
+        // TODO: Roll Die and Spawn Stuff
+    }
+
+    /// <summary>
+    /// Rolls on the table for possible weapon drops and spawns the weapon
+    /// </summary>
+    /// <returns>The rolled weapon to spawn</returns>
+    public GameObject DetermineRandomWeaponLoot()
+    {
+        // TODO: Position zum Spawnen bestimmen
+        return Instantiate(m_WeaponPrefabs[RollDice(m_WeaponPrefabs.Count)]);
+    }
+
+    /// <summary>
+    /// Rolls on the table for possible buff drops and spawns the buff
+    /// </summary>
+    /// <returns>The rolled buff to spawn</returns>
+    public GameObject DetermineRandomBuffLoot()
+    {
+        // TODO: Position zum Spawnen bestimmen
+        return Instantiate(m_BuffPrefabs[RollDice(m_BuffPrefabs.Count)]);
     }
 
     #endregion

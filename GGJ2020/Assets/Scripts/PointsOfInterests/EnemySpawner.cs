@@ -15,7 +15,7 @@ public class EnemySpawner : PointOfInterest
 
     public override void OnClearedInterest()
     {
-        // TODO ClearedInterest Funktionalität EnemySpawner
+        GameManager.Instance.CheckForEnemySpawnerDrop();
         m_Room.UnlockDoors();
     }
 
