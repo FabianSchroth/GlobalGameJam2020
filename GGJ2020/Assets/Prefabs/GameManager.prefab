@@ -49,13 +49,21 @@ MonoBehaviour:
   m_RoomPrefabs:
   - {fileID: 6504400062981134150, guid: c88534d9b132fe64a9e048a114b112cb, type: 3}
   - {fileID: 6504400062981134150, guid: ae8a41969979f3342a8c489241aa9b33, type: 3}
+  - {fileID: 6504400062981134150, guid: d836cae9bbf5d844994ee93185b8d0cc, type: 3}
+  - {fileID: 6504400062981134150, guid: b1476b10552f6524ebb4039e097b5414, type: 3}
+  - {fileID: 6504400062981134150, guid: 1fbebd4dbdcc3f2499e6c5a2c96e95db, type: 3}
   - {fileID: 6504400062981134150, guid: 042cdc1d6c1d8f54dbc71506e2b30d44, type: 3}
   - {fileID: 6504400062981134150, guid: cb9e193ac404d394f9f07fc3ba8a385c, type: 3}
   - {fileID: 6504400062981134150, guid: 03473f99e286b4e42aa73a8285cd352d, type: 3}
+  - {fileID: 6504400062981134150, guid: b0b735daf0efbf9429c06a698b3676c2, type: 3}
   - {fileID: 6504400062981134150, guid: 9744d92e002404a4094c148ac762b7cb, type: 3}
   - {fileID: 6504400062981134150, guid: dbf58b7f5f7ade3468ef6377e6261206, type: 3}
   - {fileID: 6504400062981134150, guid: 194a15aeba908454aa11a377d1bb49f9, type: 3}
   - {fileID: 6504400062981134150, guid: 0b08fdef990d40644b6b75bc0b970cb5, type: 3}
+  - {fileID: 6504400062981134150, guid: d9d6af8a9a3576649868ab235b78636f, type: 3}
+  - {fileID: 6504400062981134150, guid: 606d199646528634b986e7e81cbd5253, type: 3}
+  - {fileID: 6504400062981134150, guid: 8117b8959a1db404cab20461a8841e47, type: 3}
+  - {fileID: 6504400062981134150, guid: eb999fac266f2994d8436e0fcec47d40, type: 3}
   m_WeaponPrefabs: []
   m_BuffPrefabs: []
   m_EnemyPrefabs:
@@ -65,6 +73,16 @@ MonoBehaviour:
   m_MimicPrefab: {fileID: 0}
   m_RegenerateHealthPrefab: {fileID: 0}
   m_RepairCurrencyPrefab: {fileID: 0}
+  m_EnemySpawnerPoIPrefab: {fileID: 5512672597742566083, guid: ddc6f464eab76d84e977730fffa03309,
+    type: 3}
+  m_RepairSpotPoIPrefab: {fileID: 826382049514177210, guid: 3e30e9d3e6c0ed443b2404f7d1e3e961,
+    type: 3}
+  m_EndRoomPoIPrefab: {fileID: 7004344633080957546, guid: 41983c880939169419b6249c16d6e645,
+    type: 3}
+  m_StartRoomPoIPrefab: {fileID: 5748878836517824083, guid: 1398fbf2e8a96194eaaa2654bba64c5a,
+    type: 3}
+  m_TreasureRoomPoIPrefab: {fileID: 1827866813022906304, guid: 0f7289b8a2477d54393950cde4b94b5b,
+    type: 3}
   m_RepairSpotsToRepair: 0
   m_EndRoom: {fileID: 0}
   m_Cursor: {fileID: 2800000, guid: 2452c55d39cd3f54cbea4b9b5fad0331, type: 3}

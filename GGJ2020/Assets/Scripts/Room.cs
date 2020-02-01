@@ -10,6 +10,7 @@ public class Room : MonoBehaviour
     GameObject m_RoomPrefab;
     [HideInInspector]
     public GameObject m_PointOfInterest;
+    [HideInInspector]
     public PointOfInterest m_PointOfInterestComponent;
     public Transform m_PointOfInterestPosition;
 
