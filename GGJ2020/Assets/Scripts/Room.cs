@@ -126,6 +126,24 @@ public class Room : MonoBehaviour
 
     private void OnPlayerEnter()
     {
+        switch (GameManager.Instance.m_MoveDirection)
+        {
+            case MoveDirection.Top:
+                GameManager.Instance.m_Player.transform.position = m_DownDoor.transform.position + new Vector3(0,0,GameManager.PLAYER_SPAWN_OFFSET);
+                break;
+            case MoveDirection.Down:
+                GameManager.Instance.m_Player.transform.position = m_TopDoor.transform.position - new Vector3(0, 0, GameManager.PLAYER_SPAWN_OFFSET);
+                break;
+            case MoveDirection.Left:
+                GameManager.Instance.m_Player.transform.position = m_RightDoor.transform.position - new Vector3(GameManager.PLAYER_SPAWN_OFFSET, 0, 0);
+                break;
+            case MoveDirection.Right:
+                GameManager.Instance.m_Player.transform.position = m_RightDoor.transform.position + new Vector3(GameManager.PLAYER_SPAWN_OFFSET, 0, 0);
+                break;
+            default:
+                break;
+        }
+
         // When PoI is EnemySpawner, lock the doors
         if (m_PointOfInterest is EnemySpawner)
         {

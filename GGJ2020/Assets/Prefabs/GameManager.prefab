@@ -43,8 +43,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23f8eee1635cf024d9302899c8f4bab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Player: {fileID: 0}
+  m_MoveDirection: 0
   m_RoomPrefabs:
   - {fileID: 6504400062981134150, guid: c88534d9b132fe64a9e048a114b112cb, type: 3}
+  - {fileID: 6504400062981134150, guid: ae8a41969979f3342a8c489241aa9b33, type: 3}
+  - {fileID: 6504400062981134150, guid: 042cdc1d6c1d8f54dbc71506e2b30d44, type: 3}
+  - {fileID: 6504400062981134150, guid: cb9e193ac404d394f9f07fc3ba8a385c, type: 3}
+  - {fileID: 6504400062981134150, guid: 03473f99e286b4e42aa73a8285cd352d, type: 3}
+  - {fileID: 6504400062981134150, guid: 9744d92e002404a4094c148ac762b7cb, type: 3}
+  - {fileID: 6504400062981134150, guid: dbf58b7f5f7ade3468ef6377e6261206, type: 3}
+  - {fileID: 6504400062981134150, guid: 194a15aeba908454aa11a377d1bb49f9, type: 3}
+  - {fileID: 6504400062981134150, guid: 0b08fdef990d40644b6b75bc0b970cb5, type: 3}
   m_WeaponPrefabs: []
   m_BuffPrefabs: []
   m_MimicPrefab: {fileID: 0}
@@ -52,3 +62,4 @@ MonoBehaviour:
   m_RepairCurrencyPrefab: {fileID: 0}
   m_RepairSpotsToRepair: 0
   m_EndRoom: {fileID: 0}
+  m_Cursor: {fileID: 2800000, guid: 2452c55d39cd3f54cbea4b9b5fad0331, type: 3}
