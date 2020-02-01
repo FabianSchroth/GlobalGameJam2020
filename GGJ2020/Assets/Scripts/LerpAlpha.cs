@@ -23,7 +23,7 @@ public class LerpAlpha : MonoBehaviour
         float counter = 0;
         while (counter < _duration)
         {
-            m_Sprite.color = new Color(0,0,0,Mathf.Lerp(0,2,counter / _duration));
+            m_Sprite.material.SetFloat("Vector1_7A0A30C4", Mathf.Lerp(0,1,counter /_duration));
             yield return new WaitForEndOfFrame();
             counter += Time.deltaTime;
         }
