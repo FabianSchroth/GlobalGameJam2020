@@ -11,6 +11,14 @@ public class MazeGenerator
 
         MazeCell[,] maze = new MazeCell[_x,_y];
 
+        for (int x = 0; x < maze.GetLength(0); x++)
+        {
+            for (int y = 0; y < maze.GetLength(1); y++)
+            {
+                maze[x, y] = new MazeCell();
+            }
+        }
+
         // algorithm here
         Vector2Int currentPos = new Vector2Int(0, 0);
         int counterFilled = 0;
@@ -36,29 +44,29 @@ public class MazeGenerator
                 Vector2Int direction = nextPosition - currentPos;
                 if (direction == Vector2Int.up)
                 {
-                    maze[currentPos.x, currentPos.y].north = true;
-                    maze[currentPos.x, currentPos.y+1].south = true;
+                    maze[currentPos.x, currentPos.y].top = true;
+                    maze[currentPos.x, currentPos.y+1].down = true;
                 }
                 else if (direction == Vector2Int.down)
                 {
-                    maze[currentPos.x, currentPos.y].south = true;
-                    maze[currentPos.x, currentPos.y-1].north = true;
+                    maze[currentPos.x, currentPos.y].down = true;
+                    maze[currentPos.x, currentPos.y-1].top = true;
                 }
                 else if (direction == Vector2Int.left)
                 {
-                    maze[currentPos.x, currentPos.y].west = true;
-                    maze[currentPos.x-1, currentPos.y].east = true;
+                    maze[currentPos.x, currentPos.y].left = true;
+                    maze[currentPos.x-1, currentPos.y].right = true;
                 }
                 else if (direction == Vector2Int.right)
                 {
-                    maze[currentPos.x, currentPos.y].east = true;
-                    maze[currentPos.x+1, currentPos.y].west = true;
+                    maze[currentPos.x, currentPos.y].right = true;
+                    maze[currentPos.x+1, currentPos.y].left = true;
                 }
 
 
                 currentPos = nextPosition;
             }
-            else if (backtrackStack.Count > 0)            
+            else if (backtrackStack.Count > 0)
             {
                 currentPos = backtrackStack.Pop();
             }
