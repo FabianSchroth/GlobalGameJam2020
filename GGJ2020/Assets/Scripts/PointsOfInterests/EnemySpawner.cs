@@ -11,8 +11,6 @@ public class EnemySpawner : PointOfInterest
 
     #endregion
 
-
-
     #region Functions
 
     public override void OnClearedInterest()

@@ -9,7 +9,10 @@ public class GameManager : MonoBehaviour
     private static GameManager m_Instance;
     public static GameManager Instance { get { return m_Instance; } set { m_Instance = value; } }
 
+    [SerializeField]
     private int m_RepairSpotsToRepair;
+    [SerializeField]
+    private EndRoom m_EndRoom;
 
     #endregion
 
@@ -31,9 +34,7 @@ public class GameManager : MonoBehaviour
         m_RepairSpotsToRepair--;
 
         if (m_RepairSpotsToRepair <= 0)
-        {
-            // TODO Endraum öffnen
-        }
+            m_EndRoom.DoorIsOpen = true;
     }
 
     #endregion
