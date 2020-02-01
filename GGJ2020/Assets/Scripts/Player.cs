@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
 
     public Weapon CurrentWeapon { get; set; }
 
+    [SerializeField]
+    private float m_Speed = 7;
+
     private CharacterController m_CharacterController;
 
     private PlayerControls m_Controls;
@@ -37,7 +40,12 @@ public class Player : MonoBehaviour
         float hor = moveInput.x;
         float vert = moveInput.y;
 
-        m_CharacterController.Move(new Vector3(hor,0, vert));
+        m_CharacterController.Move(new Vector3(hor,0, vert) * m_Speed * Time.deltaTime);
+    }
+
+    private void LookDirection()
+    {
+        Vector3 direction = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);        
     }
 
     /// <summary>
@@ -85,6 +93,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         Movement();
+        LookDirection();
     }
 
     private void OnEnable()
@@ -96,6 +105,5 @@ public class Player : MonoBehaviour
     {
         m_Controls.Disable();
     }
-
-    #endregion
+    #endregion    
 }

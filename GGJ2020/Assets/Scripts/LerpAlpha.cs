@@ -11,12 +11,12 @@ public class LerpAlpha : MonoBehaviour
 
     private void Start()
     {
-        LerpThatAlpha(5,true, () => Debug.Log("MiddleOfFade"));
+        LerpThatAlpha(2,true, () => Debug.Log("MiddleOfFade"));
     }
 
     public void LerpThatAlpha(float _duration, bool _toBlack, Action _action)
     {
-        StartCoroutine(LerpingAlpha(5, _toBlack, _action));
+        StartCoroutine(LerpingAlpha(_duration, _toBlack, _action));
     }
 
     IEnumerator LerpingAlpha(float _duration, bool _toBlack, Action _action)
