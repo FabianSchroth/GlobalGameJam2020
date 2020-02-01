@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public abstract class Enemy : MonoBehaviour
 {
 
     #region Members / Properties / Constants
 
-    EnemySpawner Spawner { get; set; }
+    public EnemySpawner Spawner { get; set; }
+
+    protected NavMeshAgent m_Agent;
 
     public int RemainingHealth { get; set; }
     public int Damage { get; set; }
@@ -15,6 +19,11 @@ public abstract class Enemy : MonoBehaviour
     #endregion
 
     #region Functions
+
+    protected void Awake()
+    {
+        m_Agent = GetComponent<NavMeshAgent>();
+    }
 
     /// <summary>
     /// Called when the Enemy is taking damage
