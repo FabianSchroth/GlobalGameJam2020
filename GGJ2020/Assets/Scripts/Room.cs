@@ -23,6 +23,16 @@ public class Room : MonoBehaviour
 
     #region Functions
 
+    public void LockDoors()
+    {
+
+    }
+
+    public void UnlockDoors()
+    {
+
+    }
+
     /// <summary>
     /// TODO: Kommentar und Funktionalität
     /// </summary>
@@ -65,11 +75,21 @@ public class Room : MonoBehaviour
             case RoomStatus.Unvisited:
                 break;
             case RoomStatus.PlayerInside:
+                OnPlayerEnter();
                 break;
             case RoomStatus.Cleared:
                 break;
             default:
                 break;
+        }
+    }
+
+    private void OnPlayerEnter()
+    {
+        // When PoI is EnemySpawner, lock the doors
+        if (m_PointOfInterest is EnemySpawner)
+        {
+            LockDoors();
         }
     }
 

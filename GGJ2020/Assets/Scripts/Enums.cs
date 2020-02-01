@@ -5,3 +5,11 @@ public enum RoomStatus
     PlayerInside,
     Cleared
 }
+
+public enum MoveDirection
+{
+    Top,
+    Down,
+    Left,
+    Right
+}

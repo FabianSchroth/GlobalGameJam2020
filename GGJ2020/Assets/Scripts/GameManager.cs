@@ -9,6 +9,11 @@ public class GameManager : MonoBehaviour
     private static GameManager m_Instance;
     public static GameManager Instance { get { return m_Instance; } set { m_Instance = value; } }
 
+    private Vector2Int m_CurrentRoomIndex;
+    private Room[,] m_Map;
+    private int m_StageIndex;
+
+
     [SerializeField]
     private int m_RepairSpotsToRepair;
     [SerializeField]
@@ -21,9 +26,27 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// TODO Kommentar:
     /// </summary>
-    public void SwapRoom()
+    public void EnterRoom(MoveDirection _direction)
     {
+        switch (_direction)
+        {
+            case MoveDirection.Top:
+                m_CurrentRoomIndex.y++;
+                break;
+            case MoveDirection.Down:
+                m_CurrentRoomIndex.y--;
+                break;
+            case MoveDirection.Left:
+                m_CurrentRoomIndex.x--;
+                break;
+            case MoveDirection.Right:
+                m_CurrentRoomIndex.x++;
+                break;
+            default:
+                break;
+        }
 
+        m_Map[m_CurrentRoomIndex.x, m_CurrentRoomIndex.y].Status = RoomStatus.PlayerInside;
     }
 
     /// <summary>
@@ -47,6 +70,12 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
         else
             m_Instance = this;
+    }
+
+    private void Start()
+    {
+        m_StageIndex = 1;
+        DontDestroyOnLoad(this.gameObject);
     }
 
     #endregion
