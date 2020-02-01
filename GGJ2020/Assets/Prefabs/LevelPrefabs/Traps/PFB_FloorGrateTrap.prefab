@@ -38,6 +38,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6414758850702011591, guid: 7de55722551bf5d43a0f7ee9f0f8e645,
         type: 3}
+    - target: {fileID: 7307918822026613295, guid: d5283ce8ae862634fa1b7a4436cd64e2,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 8724151233045756623, guid: d5283ce8ae862634fa1b7a4436cd64e2,
         type: 3}
       propertyPath: m_Mesh
