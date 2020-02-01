@@ -31,6 +31,14 @@ public class GameManager : MonoBehaviour
     #region Functions
 
     /// <summary>
+    /// Start function for game over situation
+    /// </summary>
+    public void EndGame()
+    {
+        // TODO: Game Over
+    }
+
+    /// <summary>
     /// "Rolls a dice" to get a random integer value in a given range
     /// </summary>
     /// <param name="_excludedMaxValue">The excluded max value</param>
