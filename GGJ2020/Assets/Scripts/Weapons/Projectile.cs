@@ -6,7 +6,11 @@ using UnityEngine;
 public abstract class Projectile : MonoBehaviour
 {
     [SerializeField]
-    protected float m_Speed;    
+    protected float m_Speed;
+    public float Speed
+    {
+        get => m_Speed;
+    }
 
     protected abstract void HitSomething();
 }
