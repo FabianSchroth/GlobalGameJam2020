@@ -3336,7 +3336,7 @@ PrefabInstance:
     - target: {fileID: 6250255465801395676, guid: b962867e080cb6c49b99ffaca73b2d75,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6250255465801395676, guid: b962867e080cb6c49b99ffaca73b2d75,
         type: 3}
@@ -3485,7 +3485,7 @@ PrefabInstance:
     - target: {fileID: 4327312164611497069, guid: 625e1e62dc6b17a4da2c06a017afd09a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4327312164611497069, guid: 625e1e62dc6b17a4da2c06a017afd09a,
         type: 3}
@@ -3940,7 +3940,7 @@ PrefabInstance:
     - target: {fileID: 3167004288656172159, guid: f1d6daa8f0c242e459227adbe10c1c60,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3167004288656172159, guid: f1d6daa8f0c242e459227adbe10c1c60,
         type: 3}
@@ -4229,7 +4229,7 @@ PrefabInstance:
     - target: {fileID: 1825370066949890625, guid: 3ae0623c272fc52468b252c0bb3354cf,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1825370066949890625, guid: 3ae0623c272fc52468b252c0bb3354cf,
         type: 3}
@@ -4354,7 +4354,7 @@ PrefabInstance:
     - target: {fileID: 5142735860460572734, guid: 7b644b8c52194ef42884cc889ef414e8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5142735860460572734, guid: 7b644b8c52194ef42884cc889ef414e8,
         type: 3}
@@ -5072,7 +5072,7 @@ PrefabInstance:
     - target: {fileID: 4664055531914332026, guid: 308171c9dec30f244a5e33ad79cc49ce,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4664055531914332026, guid: 308171c9dec30f244a5e33ad79cc49ce,
         type: 3}
