@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,20 +11,30 @@ public class LerpAlpha : MonoBehaviour
 
     private void Start()
     {
-        LerpThatAlpha();
+        LerpThatAlpha(5,true, () => Debug.Log("MiddleOfFade"));
     }
 
-    public void LerpThatAlpha()
+    public void LerpThatAlpha(float _duration, bool _toBlack, Action _action)
     {
-        StartCoroutine(LerpingAlpha(5));
+        StartCoroutine(LerpingAlpha(5, _toBlack, _action));
     }
 
-    IEnumerator LerpingAlpha(float _duration)
+    IEnumerator LerpingAlpha(float _duration, bool _toBlack, Action _action)
     {
         float counter = 0;
-        while (counter < _duration)
+        while (counter < _duration /2)
         {
-            m_Sprite.material.SetFloat("Vector1_7A0A30C4", Mathf.Lerp(0,1,counter /_duration));
+            m_Sprite.material.SetFloat("Vector1_7A0A30C4", Mathf.Lerp(0, 1, counter / (_duration/2)));
+            yield return new WaitForEndOfFrame();
+            counter += Time.deltaTime;
+        }
+
+        _action();
+
+        counter = 0;
+        while (counter < _duration /2)
+        {
+            m_Sprite.material.SetFloat("Vector1_7A0A30C4", Mathf.Lerp(1, 0, counter / (_duration/2)));
             yield return new WaitForEndOfFrame();
             counter += Time.deltaTime;
         }
