@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4185448672801874205
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1757366554481977486, guid: d5283ce8ae862634fa1b7a4436cd64e2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1757366554481977486, guid: d5283ce8ae862634fa1b7a4436cd64e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1757366554481977486, guid: d5283ce8ae862634fa1b7a4436cd64e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1757366554481977486, guid: d5283ce8ae862634fa1b7a4436cd64e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5365374446311201432, guid: d5283ce8ae862634fa1b7a4436cd64e2,
+        type: 3}
+      propertyPath: m_Name
+      value: PFB_FloorGrateTrap
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170622334702989175, guid: d5283ce8ae862634fa1b7a4436cd64e2,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 6414758850702011591, guid: 7de55722551bf5d43a0f7ee9f0f8e645,
+        type: 3}
+    - target: {fileID: 8724151233045756623, guid: d5283ce8ae862634fa1b7a4436cd64e2,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 6414758850702011591, guid: 7de55722551bf5d43a0f7ee9f0f8e645,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5283ce8ae862634fa1b7a4436cd64e2, type: 3}
