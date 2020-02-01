@@ -2,17 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pistole : MonoBehaviour
+public class Pistole : Weapon
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    Projectile m_ProjectilePrefab;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public override void Shoot()
+    {        
+        Projectile proj = Instantiate(m_ProjectilePrefab, m_SpawnPointProjectile.position, Quaternion.Euler(0, m_SpawnPointProjectile.rotation.y, 0));
+        proj.GetComponent<Rigidbody>().velocity = proj.transform.forward * proj.Speed;
     }
 }

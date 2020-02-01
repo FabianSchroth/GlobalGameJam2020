@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_PlayerProjectile
       objectReference: {fileID: 0}
+    - target: {fileID: 4643581051304263190, guid: c2b3fe3d6bb870448938c1861481f61c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4643581051304263191, guid: c2b3fe3d6bb870448938c1861481f61c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -72,5 +77,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41e9e204dd703344880c2f94f859f775, type: 2}
+    - target: {fileID: 4643581051698312430, guid: c2b3fe3d6bb870448938c1861481f61c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2b3fe3d6bb870448938c1861481f61c, type: 3}

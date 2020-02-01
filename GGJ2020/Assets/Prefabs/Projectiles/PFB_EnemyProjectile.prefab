@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_EnemyProjectile
       objectReference: {fileID: 0}
+    - target: {fileID: 4643581051304263190, guid: c2b3fe3d6bb870448938c1861481f61c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4643581051304263191, guid: c2b3fe3d6bb870448938c1861481f61c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -66,6 +71,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4643581051698312430, guid: c2b3fe3d6bb870448938c1861481f61c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2b3fe3d6bb870448938c1861481f61c, type: 3}

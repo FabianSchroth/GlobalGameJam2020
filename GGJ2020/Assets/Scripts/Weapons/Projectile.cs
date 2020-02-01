@@ -12,5 +12,5 @@ public abstract class Projectile : MonoBehaviour
         get => m_Speed;
     }
 
-    protected abstract void HitSomething();
+    protected abstract void HitSomething(Collision _collision);
 }

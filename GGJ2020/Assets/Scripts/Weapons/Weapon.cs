@@ -7,9 +7,12 @@ public abstract class Weapon : MonoBehaviour
 
     #region Members / Properties / Constants
 
-    private string Name { get; set; }
-    private int Damage { get; set; }
-    private int AttackSpeed { get; set; }
+    protected string Name { get; set; }
+    protected int Damage { get; set; }
+    protected int AttackSpeed { get; set; }
+
+    [SerializeField]
+    protected Transform m_SpawnPointProjectile;
 
     public abstract void Shoot();
 
