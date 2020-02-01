@@ -18,6 +18,9 @@ public class Player : MonoBehaviour
     public Weapon CurrentWeapon { get; set; }
 
     [SerializeField]
+    private Weapon m_Pistol;
+
+    [SerializeField]
     private float m_Speed = 7;
 
     private CharacterController m_CharacterController;
@@ -32,7 +35,7 @@ public class Player : MonoBehaviour
 
     private void Shoot()
     {
-        
+        m_Pistol.Shoot();
     }
 
     private void Movement()
