@@ -17,6 +17,8 @@ public class Door : MonoBehaviour
     {
         if (_other.CompareTag("Player"))
         {
+            Debug.Log("Called");
+
             if (m_Room.m_TopDoor == this && !IsLocked)
                 GameManager.Instance.EnterNewRoom(MoveDirection.Top);
             else if (m_Room.m_DownDoor == this && !IsLocked)
