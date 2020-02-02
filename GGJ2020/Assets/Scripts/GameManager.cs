@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -150,11 +151,22 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Start function for game over situation
+    /// End Game -> Back To Menu
     /// </summary>
-    public void EndGame()
+    /// <param name="_stageCompleted">determines if the player has died or if he completed the stage</param>
+    public void EndGame(bool _stageCompleted)
     {
         // TODO: Game Over
+        Destroy(m_Player.gameObject);
+
+        if (_stageCompleted)
+        {
+            SceneManager.LoadScene(2);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     /// <summary>
@@ -263,7 +275,7 @@ public class GameManager : MonoBehaviour
         RNG = new System.Random();
 
         m_StageIndex = 1;
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
         Cursor.SetCursor(m_Cursor, new Vector2(32,28), CursorMode.ForceSoftware);
         CreateMap();
     }

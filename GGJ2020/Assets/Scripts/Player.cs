@@ -122,7 +122,7 @@ public class Player : MonoBehaviour
                     {
                         if (endRoom.DoorIsOpen)
                         {
-                            GameManager.Instance.EndGame();
+                            GameManager.Instance.EndGame(true);
                         }
                     }
                 }
@@ -142,12 +142,10 @@ public class Player : MonoBehaviour
         {
             Lifes[m_RemainingHealth].enabled = false;
         }
-        //TODO: Update GUI
 
         if (m_RemainingHealth <= 0)
         {
-            Debug.Log("GameOver!");
-            // TODO: Game Over
+            GameManager.Instance.EndGame(false);
         }
     }
 
@@ -176,7 +174,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
 
         m_Weapons[m_CurrentWeaponIndx].gameObject.SetActive(true);
     }
