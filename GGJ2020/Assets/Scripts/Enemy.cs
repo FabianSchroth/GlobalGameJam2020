@@ -37,6 +37,7 @@ public abstract class Enemy : MonoBehaviour
 
         if (RemainingHealth <= 0)
         {
+            GameManager.Instance.SpawnSparePart(this.transform);
             //Spawner.OnEnemyKilled();
             Destroy(this.gameObject);
         }

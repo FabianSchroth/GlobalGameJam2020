@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23f8eee1635cf024d9302899c8f4bab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_CurrentRoomIndexX: 2
+  m_CurrentRoomIndexY: 2
   m_StageIndex: 0
   m_Player: {fileID: 0}
   m_MoveDirection: 0
@@ -94,7 +96,8 @@ MonoBehaviour:
   - {fileID: 5634240571269359566, guid: 2331bdc31021d2a44a9bfcc1fea7d3f3, type: 3}
   m_MimicPrefab: {fileID: 0}
   m_RegenerateHealthPrefab: {fileID: 0}
-  m_RepairCurrencyPrefab: {fileID: 0}
+  m_RepairCurrencyPrefab: {fileID: 1683006033300965977, guid: 24cd588b50eefd64cb08b27146edbaf1,
+    type: 3}
   m_EnemySpawnerPoIPrefab: {fileID: 5512672597742566083, guid: ddc6f464eab76d84e977730fffa03309,
     type: 3}
   m_RepairSpotPoIPrefab: {fileID: 3364834337718804733, guid: 3e30e9d3e6c0ed443b2404f7d1e3e961,

@@ -88,6 +88,7 @@ public class Room : MonoBehaviour
         }
         this.m_PointOfInterest = Instantiate(GameManager.Instance.m_StartRoomPoIPrefab, m_PointOfInterestPosition);
         this.m_PointOfInterestComponent = this.m_PointOfInterest.GetComponent<PointOfInterest>();
+        this.m_PointOfInterestComponent.m_Room = this;
     }
 
     /// <summary>
@@ -102,6 +103,7 @@ public class Room : MonoBehaviour
         }
         this.m_PointOfInterest = Instantiate(GameManager.Instance.m_EndRoomPoIPrefab, m_PointOfInterestPosition);
         this.m_PointOfInterestComponent = this.m_PointOfInterest.GetComponent<PointOfInterest>();
+        this.m_PointOfInterestComponent.m_Room = this;
     }
 
     /// <summary>
@@ -116,6 +118,7 @@ public class Room : MonoBehaviour
         }
         this.m_PointOfInterest = Instantiate(GameManager.Instance.m_RepairSpotPoIPrefab, m_PointOfInterestPosition);
         this.m_PointOfInterestComponent = this.m_PointOfInterest.GetComponent<PointOfInterest>();
+        this.m_PointOfInterestComponent.m_Room = this;
     }
 
     /// <summary>
@@ -125,6 +128,7 @@ public class Room : MonoBehaviour
     {
         this.m_PointOfInterest = Instantiate(GameManager.Instance.m_EnemySpawnerPoIPrefab, m_PointOfInterestPosition);
         this.m_PointOfInterestComponent = this.m_PointOfInterest.GetComponent<PointOfInterest>();
+        this.m_PointOfInterestComponent.m_Room = this;
     }
 
     /// <summary>
@@ -139,6 +143,7 @@ public class Room : MonoBehaviour
         }
         this.m_PointOfInterest = Instantiate(GameManager.Instance.m_TreasureRoomPoIPrefab, m_PointOfInterestPosition);
         this.m_PointOfInterestComponent = this.m_PointOfInterest.GetComponent<PointOfInterest>();
+        this.m_PointOfInterestComponent.m_Room = this;
     }
 
     /// <summary>

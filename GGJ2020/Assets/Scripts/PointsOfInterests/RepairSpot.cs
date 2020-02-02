@@ -7,7 +7,7 @@ public class RepairSpot : PointOfInterest
 
     #region Members / Properties / Constants
 
-    public int RemainingMaterialsToRepair { get; set; }
+    public int RemainingMaterialsToRepair = 10;
 
     #endregion
 

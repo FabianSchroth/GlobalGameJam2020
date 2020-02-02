@@ -80,8 +80,12 @@ public class Player : MonoBehaviour
     private void Interact()
     {
         Collider[] col = Physics.OverlapSphere(transform.position + Vector3.up, 2);
+        Debug.Log(col);
+
         foreach (Collider item in col)
         {
+            Debug.Log(item.name);
+
             if (item.tag == "Sparepart")
             {
                 Destroy(item.gameObject);

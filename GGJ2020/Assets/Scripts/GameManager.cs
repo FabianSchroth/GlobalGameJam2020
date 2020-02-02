@@ -144,6 +144,11 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public void SpawnSparePart(Transform _deadEnemyCaller)
+    {
+        Instantiate(m_RepairCurrencyPrefab, _deadEnemyCaller.position, Quaternion.identity);
+    }
+
     /// <summary>
     /// Start function for game over situation
     /// </summary>
@@ -195,8 +200,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void RepairSpotIsRepaired(RepairSpot _caller)
     {
-        Material[] materials = _caller.GetComponent<MeshRenderer>()?.materials;
+        MeshRenderer renderer = _caller.GetComponent<MeshRenderer>();
+        Material[] materials = renderer?.materials;
         materials[materials.Length - 1] = m_RepairSpotDoneMaterial;
+        renderer.materials = materials;
 
         m_RepairSpotsToRepair--;
 
