@@ -18,7 +18,7 @@ public class RepairSpot : PointOfInterest
     /// </summary>
     public override void OnClearedInterest()
     {
-        GameManager.Instance.RepairSpotIsRepaired();
+        GameManager.Instance.RepairSpotIsRepaired(this);
     }
 
     /// <summary>

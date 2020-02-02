@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public Player m_Player;
     public MoveDirection m_MoveDirection;
 
+    public Material m_RepairSpotDoneMaterial;
+
     // Prefabs
     [SerializeField]
     private List<GameObject> m_RoomPrefabs;
@@ -183,8 +185,11 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Called when a Repair Spot has been repaired
     /// </summary>
-    public void RepairSpotIsRepaired()
+    public void RepairSpotIsRepaired(RepairSpot _caller)
     {
+        Material[] materials = _caller.GetComponent<MeshRenderer>()?.materials;
+        materials[materials.Length - 1] = m_RepairSpotDoneMaterial;
+
         m_RepairSpotsToRepair--;
 
         if (m_RepairSpotsToRepair <= 0)
