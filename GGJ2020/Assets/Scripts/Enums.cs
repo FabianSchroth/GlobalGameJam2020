@@ -13,3 +13,10 @@ public enum MoveDirection
     Left,
     Right
 }
+
+public enum RotationAxis
+{
+    X,
+    Y,
+    Z
+}

@@ -25,7 +25,7 @@ public class Enemy01 : Enemy
 
     private void Start()
     {
-        m_Target = GameManager.Instance.m_Player.transform;        
+        m_Target = GameManager.Instance.m_Player.transform;
     }
 
     private void Shoot()

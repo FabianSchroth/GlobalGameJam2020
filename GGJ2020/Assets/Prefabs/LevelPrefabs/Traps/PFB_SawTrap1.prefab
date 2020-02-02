@@ -57,6 +57,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RotationSpeed: 180
+  m_Axis: 0
 --- !u!1 &9082847792134581789
 GameObject:
   m_ObjectHideFlags: 0
