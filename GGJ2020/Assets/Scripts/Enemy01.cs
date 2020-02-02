@@ -39,22 +39,26 @@ public class Enemy01 : Enemy
 
     private void Update()
     {
-        m_Gun.LookAt(m_Target.position);
+        if (m_Target != null && m_Agent != null)
+        {
 
-        m_Timer += Time.deltaTime;
-        RaycastHit hit;        
-        if (m_Timer >= m_Interval && Physics.Raycast(transform.position + Vector3.up, m_Target.position - transform.position, out hit, m_Range))
-        {
-            if (hit.collider.gameObject.tag == "Player")
+            m_Gun.LookAt(m_Target.position);
+
+            m_Timer += Time.deltaTime;
+            RaycastHit hit;
+            if (m_Timer >= m_Interval && Physics.Raycast(transform.position + Vector3.up, m_Target.position - transform.position, out hit, m_Range))
             {
-                m_Agent.isStopped = true;
-                Shoot();
+                if (hit.collider.gameObject.tag == "Player")
+                {
+                    m_Agent.isStopped = true;
+                    Shoot();
+                }
             }
-        }                
-        else
-        {
-            m_Agent.isStopped = false;
-            m_Agent.SetDestination(m_Target.position);
-        }        
+            else
+            {
+                m_Agent.isStopped = false;
+                m_Agent.SetDestination(m_Target.position);
+            }
+        }
     }
 }

@@ -27,7 +27,6 @@ public class Minigun : Weapon
     {
         if (shoot)
         {
-
             timer += Time.deltaTime;
 
             if (timer >= (1 / m_ShotsPerSec))
