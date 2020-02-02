@@ -133,6 +133,7 @@ public class GameManager : MonoBehaviour
         } while (!PoIsSet);
 
         m_Player.transform.position = m_Map[2, 2].m_DownSpawnPointPlayer.position + Vector3.up;
+        m_CurrentRoomIndex = new Vector2Int(2, 2);
 
     }
 
