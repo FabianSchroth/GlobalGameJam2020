@@ -449,6 +449,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7786d0f21d71a5547ab6538e3dead6d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_RemainingHealth: 3
+  m_MaxHealth: 3
   m_Pistol: {fileID: 8155653029830384582}
   m_Speed: 7
   m_LerpAlpha: {fileID: 7107760633508662804}
