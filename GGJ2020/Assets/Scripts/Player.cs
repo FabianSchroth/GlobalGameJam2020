@@ -110,12 +110,12 @@ public class Player : MonoBehaviour
             }
             else
             {
-                RepairSpot spot = item.gameObject.GetComponent<RepairSpot>();
+                RepairSpot spot = item.gameObject.GetComponentInParent<RepairSpot>();
                 if (spot)
                 {
                     if (spot.RemainingMaterialsToRepair <= SpareParts)
                     {
-                        SpareParts -= spot.RemainingMaterialsToRepair;
+                        //SpareParts -= spot.RemainingMaterialsToRepair;
                         spot.Repair(spot.RemainingMaterialsToRepair);
                     }
                 }
