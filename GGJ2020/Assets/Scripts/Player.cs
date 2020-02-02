@@ -12,12 +12,12 @@ public class Player : MonoBehaviour
     private static Player m_Instance;
     public static Player Instance { get { return m_Instance; } set { m_Instance = value; } }
 
-    int m_RemainingHealth;
-    int m_MaxHealth;
+    public int m_RemainingHealth;
+    public int m_MaxHealth;
 
     int m_SpareParts = 0;
 
-    int SpareParts
+    public int SpareParts
     {
         get => m_SpareParts;
         set
@@ -126,6 +126,7 @@ public class Player : MonoBehaviour
 
         if (m_RemainingHealth <= 0)
         {
+            Debug.Log("GameOver!");
             // TODO: Game Over
         }
     }
@@ -173,5 +174,5 @@ public class Player : MonoBehaviour
     {
         m_Controls.Disable();
     }
-    #endregion    
+    #endregion
 }

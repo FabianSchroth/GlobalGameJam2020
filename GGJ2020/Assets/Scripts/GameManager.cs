@@ -8,7 +8,10 @@ public class GameManager : MonoBehaviour
     private static GameManager m_Instance;
     public static GameManager Instance { get { return m_Instance; } set { m_Instance = value; } }
 
-    private Vector2Int m_CurrentRoomIndex;
+    //private Vector2Int m_CurrentRoomIndex;
+    public int m_CurrentRoomIndexX = 2;
+    public int m_CurrentRoomIndexY = 2;
+
     private Room[,] m_Map;
     public int m_StageIndex;
 
@@ -133,7 +136,8 @@ public class GameManager : MonoBehaviour
         } while (!PoIsSet);
 
         m_Player.transform.position = m_Map[2, 2].m_DownSpawnPointPlayer.position + Vector3.up;
-        m_CurrentRoomIndex = new Vector2Int(2, 2);
+        m_CurrentRoomIndexX = 2;
+        m_CurrentRoomIndexY = 2;
 
     }
 
@@ -167,22 +171,22 @@ public class GameManager : MonoBehaviour
         switch (_direction)
         {
             case MoveDirection.Top:
-                m_CurrentRoomIndex.y++;
+                m_CurrentRoomIndexY++;
                 break;
             case MoveDirection.Down:
-                m_CurrentRoomIndex.y--;
+                m_CurrentRoomIndexY--;
                 break;
             case MoveDirection.Left:
-                m_CurrentRoomIndex.x--;
+                m_CurrentRoomIndexX--;
                 break;
             case MoveDirection.Right:
-                m_CurrentRoomIndex.x++;
+                m_CurrentRoomIndexX++;
                 break;
             default:
                 break;
         }
-        Debug.Log(m_CurrentRoomIndex);
-        m_Map[m_CurrentRoomIndex.x, m_CurrentRoomIndex.y].Status = RoomStatus.PlayerInside;
+        Debug.Log($"{m_CurrentRoomIndexX},{m_CurrentRoomIndexY}");
+        m_Map[m_CurrentRoomIndexX, m_CurrentRoomIndexY].Status = RoomStatus.PlayerInside;
     }
 
     /// <summary>

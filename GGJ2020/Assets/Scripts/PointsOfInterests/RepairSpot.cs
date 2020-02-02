@@ -27,7 +27,11 @@ public class RepairSpot : PointOfInterest
     /// <param name="_materialAmount">The material-amount used to repair the Spot</param>
     public void Repair(int _materialAmount)
     {
+        if (_materialAmount > RemainingMaterialsToRepair)
+            _materialAmount = RemainingMaterialsToRepair;
+
         RemainingMaterialsToRepair -= _materialAmount;
+        GameManager.Instance.m_Player.SpareParts -= _materialAmount;
 
         if (RemainingMaterialsToRepair <= 0)
             this.m_Room.Status = RoomStatus.Cleared;
