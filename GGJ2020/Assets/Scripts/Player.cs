@@ -137,6 +137,7 @@ public class Player : MonoBehaviour
     /// <param name="_amount">The amount of damage to take</param>
     public void TakeDamage(int _amount)
     {
+        GameManager.Instance.m_PlayerTakeDamageAudio.Play();
         m_RemainingHealth -= _amount;
         if (m_RemainingHealth < 3 && m_RemainingHealth >= 0)
         {

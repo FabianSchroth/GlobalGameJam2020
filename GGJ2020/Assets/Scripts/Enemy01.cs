@@ -23,6 +23,8 @@ public class Enemy01 : Enemy
     [SerializeField]
     private float m_Interval = 1f;
 
+    public AudioSource m_ShootSound;
+
     private void Start()
     {
         m_Target = GameManager.Instance.m_Player.transform;
@@ -31,6 +33,7 @@ public class Enemy01 : Enemy
     private void Shoot()
     {
         m_Timer = 0;
+        m_ShootSound.Play();
         Instantiate(m_Projectile, m_BulletSpawn.position, m_BulletSpawn.rotation);
     }
 

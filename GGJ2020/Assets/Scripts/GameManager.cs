@@ -21,6 +21,10 @@ public class GameManager : MonoBehaviour
 
     public Material m_RepairSpotDoneMaterial;
 
+    // Audio
+    public AudioSource m_PlayerTakeDamageAudio;
+    public AudioSource m_PlayerDeathAudio;
+
     // Prefabs
     [SerializeField]
     private List<GameObject> m_RoomPrefabs;
@@ -165,6 +169,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            m_PlayerDeathAudio.Play();
             SceneManager.LoadScene(0);
         }
     }
