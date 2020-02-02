@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Texture2D m_Cursor;
 
+    private System.Random RNG { get; set; }
+
     public const int ROOM_OFFSET = 50;
     public const float PLAYER_SPAWN_OFFSET = 5f;
 
@@ -157,8 +159,7 @@ public class GameManager : MonoBehaviour
     /// <returns>The random integer</returns>
     public int RollDice(int _excludedMaxValue)
     {
-        System.Random random = new System.Random();
-        return random.Next(0, _excludedMaxValue);
+        return RNG.Next(0, _excludedMaxValue);
     }
 
     /// <summary>
@@ -249,6 +250,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        RNG = new System.Random();
+
         m_StageIndex = 1;
         DontDestroyOnLoad(this.gameObject);
         Cursor.SetCursor(m_Cursor, new Vector2(32,28), CursorMode.ForceSoftware);
