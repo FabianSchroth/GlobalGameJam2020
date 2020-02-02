@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
     Weapon[] m_Weapons;
 
     [SerializeField]
-    private float m_Speed = 7;
+    private float m_Speed = 15;
 
     [SerializeField]
     private LerpAlpha m_LerpAlpha;
@@ -109,7 +109,7 @@ public class Player : MonoBehaviour
                 RepairSpot spot = item.gameObject.GetComponent<RepairSpot>();
                 if (spot)
                 {
-                    if (spot.RemainingMaterialsToRepair < SpareParts)
+                    if (spot.RemainingMaterialsToRepair <= SpareParts)
                     {
                         SpareParts -= spot.RemainingMaterialsToRepair;
                         spot.Repair(spot.RemainingMaterialsToRepair);

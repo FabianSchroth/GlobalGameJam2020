@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
 
     private System.Random RNG { get; set; }
 
-    public const int ROOM_OFFSET = 50;
+    public const int ROOM_OFFSET = 100;
     public const float PLAYER_SPAWN_OFFSET = 5f;
 
     #endregion

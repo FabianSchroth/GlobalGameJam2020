@@ -833,7 +833,7 @@ MonoBehaviour:
   - {fileID: 3054636524353934302}
   - {fileID: 3869492811777370569}
   m_Pistol: {fileID: 4238699845389382235}
-  m_Speed: 7
+  m_Speed: 15
   m_LerpAlpha: {fileID: 7107760633508662804}
   m_SparepartText: {fileID: 6445995152119561842}
 --- !u!54 &4118501050183020206
