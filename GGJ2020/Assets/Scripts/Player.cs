@@ -75,8 +75,19 @@ public class Player : MonoBehaviour
                         m_SpareParts -= spot.RemainingMaterialsToRepair;                        
                     }
                 }
-
+                else
+                {
+                    EndRoom endRoom = item.gameObject.GetComponent<EndRoom>();
+                    if (endRoom)
+                    {
+                        if (endRoom.DoorIsOpen)
+                        {
+                            GameManager.Instance.EndGame();
+                        }                        
+                    }
+                }
             }
+            
         }
     }
 
