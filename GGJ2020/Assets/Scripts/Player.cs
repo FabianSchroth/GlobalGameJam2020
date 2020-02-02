@@ -104,6 +104,10 @@ public class Player : MonoBehaviour
                 Destroy(item.gameObject);
                 SpareParts++;
             }
+            else if (item.GetComponent<DropWeapon>())
+            {
+                SwapWeapon((int)item.GetComponent<DropWeapon>().m_myWeapon);
+            }
             else
             {
                 RepairSpot spot = item.gameObject.GetComponent<RepairSpot>();

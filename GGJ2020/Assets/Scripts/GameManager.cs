@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     public int m_CurrentRoomIndexX = 2;
     public int m_CurrentRoomIndexY = 2;
 
+    [SerializeField]
+    public DropWeapon[] DropWeapons;
+
     public Room[,] m_Map;
     public int m_StageIndex;
 
