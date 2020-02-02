@@ -85,16 +85,16 @@ public class Player : MonoBehaviour
             if (item.tag == "Sparepart")
             {
                 Destroy(item.gameObject);
-                m_SpareParts++;
+                SpareParts++;
             }
             else
             {
                 RepairSpot spot = item.gameObject.GetComponent<RepairSpot>();
                 if (spot)
                 {
-                    if (spot.RemainingMaterialsToRepair < m_SpareParts)
+                    if (spot.RemainingMaterialsToRepair < SpareParts)
                     {
-                        m_SpareParts -= spot.RemainingMaterialsToRepair;
+                        SpareParts -= spot.RemainingMaterialsToRepair;
                         spot.Repair(spot.RemainingMaterialsToRepair);
                     }
                 }
