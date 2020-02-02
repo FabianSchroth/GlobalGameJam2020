@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2976404585309165749}
   - component: {fileID: 8823353592287700044}
   - component: {fileID: 6433354511139227211}
+  - component: {fileID: 4247109127744608284}
   m_Layer: 0
   m_Name: EndRoom
   m_TagString: Untagged
@@ -95,3 +96,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Room: {fileID: 0}
+--- !u!65 &4247109127744608284
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7083616120144105616}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 3, z: 1}
+  m_Center: {x: -2, y: 1.5, z: -2}
