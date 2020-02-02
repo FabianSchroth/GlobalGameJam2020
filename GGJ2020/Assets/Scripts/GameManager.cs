@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Overwrite PoIs for needed PoIs
-        m_Map[3, 3].SetStartRoom();
+        m_Map[2, 2].SetStartRoom();
 
         int diceRollX;
         int diceRollY;

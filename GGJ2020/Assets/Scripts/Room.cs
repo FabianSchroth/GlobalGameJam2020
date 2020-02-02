@@ -80,6 +80,11 @@ public class Room : MonoBehaviour
     /// </summary>
     public void SetStartRoom()
     {
+        if (this.m_PointOfInterest != null)
+        {
+            m_PointOfInterestComponent = null;
+            Destroy(this.m_PointOfInterest);
+        }
         this.m_PointOfInterest = Instantiate(GameManager.Instance.m_StartRoomPoIPrefab, m_PointOfInterestPosition);
         this.m_PointOfInterestComponent = this.m_PointOfInterest.GetComponent<PointOfInterest>();
     }
@@ -89,6 +94,11 @@ public class Room : MonoBehaviour
     /// </summary>
     public void SetEndRoom()
     {
+        if (this.m_PointOfInterest != null)
+        {
+            m_PointOfInterestComponent = null;
+            Destroy(this.m_PointOfInterest);
+        }
         this.m_PointOfInterest = Instantiate(GameManager.Instance.m_EndRoomPoIPrefab, m_PointOfInterestPosition);
         this.m_PointOfInterestComponent = this.m_PointOfInterest.GetComponent<PointOfInterest>();
     }
@@ -98,6 +108,11 @@ public class Room : MonoBehaviour
     /// </summary>
     public void SetRepairSpot()
     {
+        if (this.m_PointOfInterest != null)
+        {
+            m_PointOfInterestComponent = null;
+            Destroy(this.m_PointOfInterest);
+        }
         this.m_PointOfInterest = Instantiate(GameManager.Instance.m_RepairSpotPoIPrefab, m_PointOfInterestPosition);
         this.m_PointOfInterestComponent = this.m_PointOfInterest.GetComponent<PointOfInterest>();
     }
@@ -116,6 +131,11 @@ public class Room : MonoBehaviour
     /// </summary>
     public void SetTreasureChest()
     {
+        if (this.m_PointOfInterest != null)
+        {
+            m_PointOfInterestComponent = null;
+            Destroy(this.m_PointOfInterest);
+        }
         this.m_PointOfInterest = Instantiate(GameManager.Instance.m_TreasureRoomPoIPrefab, m_PointOfInterestPosition);
         this.m_PointOfInterestComponent = this.m_PointOfInterest.GetComponent<PointOfInterest>();
     }
@@ -151,7 +171,6 @@ public class Room : MonoBehaviour
             enemySpawner.RemainingEnemys = enemyAmount;
         }
 
-        //TODO: Fixe TransformPoints für Positionswechsel?
         switch (GameManager.Instance.m_MoveDirection)
         {
             case MoveDirection.Top:
@@ -159,16 +178,27 @@ public class Room : MonoBehaviour
                 // Spawn Up To 3 Enemies
                 if (enemyAmount > 0)
                 {
-                    Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], m_LeftSpawnPointPlayer.position, Quaternion.identity);
+                    Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], new Vector3 (m_LeftSpawnPointPlayer.position.x + 1, m_LeftSpawnPointPlayer.position.y, m_LeftSpawnPointPlayer.position.z), Quaternion.identity);
+                    Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], new Vector3(m_LeftSpawnPointPlayer.position.x - 1, m_LeftSpawnPointPlayer.position.y, m_LeftSpawnPointPlayer.position.z), Quaternion.identity);
+                    Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], new Vector3(m_LeftSpawnPointPlayer.position.x, m_LeftSpawnPointPlayer.position.y, m_LeftSpawnPointPlayer.position.z + 1), Quaternion.identity);
+                    Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], new Vector3(m_LeftSpawnPointPlayer.position.x, m_LeftSpawnPointPlayer.position.y, m_LeftSpawnPointPlayer.position.z - 1), Quaternion.identity);
                     enemyAmount--;
 
                     if (enemyAmount > 0)
                     {
-                        Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], m_TopSpawnPointPlayer.position, Quaternion.identity);
+                        Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], new Vector3(m_TopSpawnPointPlayer.position.x + 1, m_TopSpawnPointPlayer.position.y, m_TopSpawnPointPlayer.position.z), Quaternion.identity);
+                        Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], new Vector3(m_TopSpawnPointPlayer.position.x - 1, m_TopSpawnPointPlayer.position.y, m_TopSpawnPointPlayer.position.z), Quaternion.identity);
+                        Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], new Vector3(m_TopSpawnPointPlayer.position.x, m_TopSpawnPointPlayer.position.y, m_TopSpawnPointPlayer.position.z + 1), Quaternion.identity);
+                        Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], new Vector3(m_TopSpawnPointPlayer.position.x, m_TopSpawnPointPlayer.position.y, m_TopSpawnPointPlayer.position.z - 1), Quaternion.identity);
                         enemyAmount--;
 
                         if (enemyAmount > 0)
-                            Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], m_RightSpawnPointPlayer.position, Quaternion.identity);
+                        {
+                            Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], new Vector3(m_RightSpawnPointPlayer.position.x + 1, m_RightSpawnPointPlayer.position.y, m_RightSpawnPointPlayer.position.z), Quaternion.identity);
+                            Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], new Vector3(m_RightSpawnPointPlayer.position.x - 1, m_RightSpawnPointPlayer.position.y, m_RightSpawnPointPlayer.position.z), Quaternion.identity);
+                            Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], new Vector3(m_RightSpawnPointPlayer.position.x, m_RightSpawnPointPlayer.position.y, m_RightSpawnPointPlayer.position.z + 1), Quaternion.identity);
+                            Instantiate(GameManager.Instance.m_EnemyPrefabs[GameManager.Instance.RollDice(GameManager.Instance.m_EnemyPrefabs.Count)], new Vector3(m_RightSpawnPointPlayer.position.x, m_RightSpawnPointPlayer.position.y, m_RightSpawnPointPlayer.position.z - 1), Quaternion.identity);
+                        }
                     }
                 }
                 break;
