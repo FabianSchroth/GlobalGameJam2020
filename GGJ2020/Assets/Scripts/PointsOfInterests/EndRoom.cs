@@ -32,7 +32,9 @@ public class EndRoom : PointOfInterest
     {
         if (_value)
         {
-            // TODO: Door Is Open
+            MeshRenderer renderer = this.GetComponent<MeshRenderer>();
+            Material[] materials = renderer?.materials;
+            materials[materials.Length - 1] = GameManager.Instance.m_RepairSpotDoneMaterial;
         }
     }
 
