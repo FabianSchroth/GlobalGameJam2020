@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!64 &724739145445250851
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8981775366633702835}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -9123900656045676308, guid: 9182d87a6a8200d479f68bc42c24ccc4, type: 3}
 --- !u!1 &2280579712219549263
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +362,20 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: -7.6, y: 2.5, z: 0}
   m_TimeToStationary: 0.5
+--- !u!64 &9030683955127865696
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025498167831291423}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -9123900656045676308, guid: 9182d87a6a8200d479f68bc42c24ccc4, type: 3}
 --- !u!1001 &1118089034934066362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -402,6 +430,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9182d87a6a8200d479f68bc42c24ccc4, type: 3}
+--- !u!1 &8981775366633702835 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 9182d87a6a8200d479f68bc42c24ccc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1118089034934066362}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8015825473018183446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -436,6 +470,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9182d87a6a8200d479f68bc42c24ccc4, type: 3}
+--- !u!1 &2025498167831291423 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 9182d87a6a8200d479f68bc42c24ccc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 8015825473018183446}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8015825473019033464
 PrefabInstance:
   m_ObjectHideFlags: 0
