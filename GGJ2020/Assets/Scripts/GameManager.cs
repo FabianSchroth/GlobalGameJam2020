@@ -170,7 +170,7 @@ public class GameManager : MonoBehaviour
 
         if (_stageCompleted)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
         else
         {

@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MenuScene_Fixed.unity
     guid: 5e982f223ff48744aa0e394874cc5b52
+  - enabled: 1
+    path: Assets/Scenes/CookieScene.unity
+    guid: 6ab6e7f8024823f42964f027e262c6d6
   m_configObjects: {}
