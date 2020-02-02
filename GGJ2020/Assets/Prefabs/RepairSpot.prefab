@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7327941977819703512}
   - component: {fileID: 3931252199980930081}
   - component: {fileID: 5090231871902302207}
+  - component: {fileID: 504498530225070971}
   m_Layer: 0
   m_Name: RepairSpot
   m_TagString: Untagged
@@ -96,6 +97,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Room: {fileID: 0}
+--- !u!65 &504498530225070971
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3364834337718804733}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.0000014, y: 3.5435658, z: 2.0996852}
+  m_Center: {x: 0, y: 1.7717824, z: 1.0498416}
 --- !u!1 &5139934765726936182
 GameObject:
   m_ObjectHideFlags: 0

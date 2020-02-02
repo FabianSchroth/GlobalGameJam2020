@@ -132,6 +132,8 @@ public class GameManager : MonoBehaviour
             }
         } while (!PoIsSet);
 
+        m_Player.transform.position = m_Map[2, 2].m_DownSpawnPointPlayer.position;
+
     }
 
 
