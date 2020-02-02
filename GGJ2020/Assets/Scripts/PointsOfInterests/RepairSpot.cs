@@ -34,7 +34,10 @@ public class RepairSpot : PointOfInterest
         GameManager.Instance.m_Player.SpareParts -= _materialAmount;
 
         if (RemainingMaterialsToRepair <= 0)
+        {
+            OnClearedInterest();
             this.m_Room.Status = RoomStatus.Cleared;
+        }
     }
 
     #endregion

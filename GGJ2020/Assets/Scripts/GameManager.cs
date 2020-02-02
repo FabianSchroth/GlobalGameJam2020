@@ -191,8 +191,11 @@ public class GameManager : MonoBehaviour
             default:
                 break;
         }
-        Debug.Log($"{m_CurrentRoomIndexX},{m_CurrentRoomIndexY}");
-        m_Map[m_CurrentRoomIndexX, m_CurrentRoomIndexY].Status = RoomStatus.PlayerInside;
+
+        if (m_Map[m_CurrentRoomIndexX, m_CurrentRoomIndexY].Status != RoomStatus.Cleared)
+        {
+            m_Map[m_CurrentRoomIndexX, m_CurrentRoomIndexY].Status = RoomStatus.PlayerInside;
+        }
     }
 
     /// <summary>
