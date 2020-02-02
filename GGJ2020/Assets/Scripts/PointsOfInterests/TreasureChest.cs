@@ -6,6 +6,6 @@ public class TreasureChest : PointOfInterest
 {
     public override void OnClearedInterest()
     {
-        throw new System.NotImplementedException();
+        GameManager.Instance.DetermineRandomWeaponLoot(this.m_Room);
     }
 }

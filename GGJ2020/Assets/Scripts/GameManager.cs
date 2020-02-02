@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
             }
         } while (!PoIsSet);
 
-        m_Player.transform.position = m_Map[2, 2].m_DownSpawnPointPlayer.position;
+        m_Player.transform.position = m_Map[2, 2].m_DownSpawnPointPlayer.position + Vector3.up;
 
     }
 
@@ -210,10 +210,9 @@ public class GameManager : MonoBehaviour
     /// Rolls on the table for possible weapon drops and spawns the weapon
     /// </summary>
     /// <returns>The rolled weapon to spawn</returns>
-    public GameObject DetermineRandomWeaponLoot()
+    public GameObject DetermineRandomWeaponLoot(Room _caller)
     {
-        // TODO: Position zum Spawnen bestimmen
-        return Instantiate(m_WeaponPrefabs[RollDice(m_WeaponPrefabs.Count)]);
+        return Instantiate(m_WeaponPrefabs[RollDice(m_WeaponPrefabs.Count)], _caller.m_PointOfInterestPosition);
     }
 
     /// <summary>

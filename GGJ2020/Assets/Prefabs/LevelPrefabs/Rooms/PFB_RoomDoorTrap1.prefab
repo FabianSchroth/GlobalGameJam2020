@@ -1659,6 +1659,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_RotatingDoorTrap1
       objectReference: {fileID: 0}
+    - target: {fileID: 7232705195195860606, guid: e78bb468c02be584ca45ea90f679a3b4,
+        type: 3}
+      propertyPath: m_RotationSpeed
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8524477786515707352, guid: e78bb468c02be584ca45ea90f679a3b4,
         type: 3}
       propertyPath: m_LocalPosition.x

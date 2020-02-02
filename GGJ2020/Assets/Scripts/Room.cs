@@ -170,6 +170,10 @@ public class Room : MonoBehaviour
             EnemySpawner enemySpawner = m_PointOfInterestComponent as EnemySpawner;
             enemySpawner.RemainingEnemys = enemyAmount;
         }
+        else if (m_PointOfInterestComponent is TreasureChest || m_PointOfInterestComponent is StartRoom)
+        {
+            m_Status = RoomStatus.Cleared;
+        }
 
         switch (GameManager.Instance.m_MoveDirection)
         {
