@@ -3494,6 +3494,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_Door (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2596492476863879755, guid: b962867e080cb6c49b99ffaca73b2d75,
+        type: 3}
+      propertyPath: m_Room
+      value: 
+      objectReference: {fileID: 9083783476340173598}
     - target: {fileID: 6250255465801395676, guid: b962867e080cb6c49b99ffaca73b2d75,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3903,6 +3908,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 2596492476863879755, guid: b962867e080cb6c49b99ffaca73b2d75,
+        type: 3}
+      propertyPath: m_Room
+      value: 
+      objectReference: {fileID: 9083783476340173598}
     - target: {fileID: 6250255465801395676, guid: b962867e080cb6c49b99ffaca73b2d75,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4002,6 +4012,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_Door (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2596492476863879755, guid: b962867e080cb6c49b99ffaca73b2d75,
+        type: 3}
+      propertyPath: m_Room
+      value: 
+      objectReference: {fileID: 9083783476340173598}
     - target: {fileID: 6250255465801395676, guid: b962867e080cb6c49b99ffaca73b2d75,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4941,6 +4956,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_Door (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2596492476863879755, guid: b962867e080cb6c49b99ffaca73b2d75,
+        type: 3}
+      propertyPath: m_Room
+      value: 
+      objectReference: {fileID: 9083783476340173598}
     - target: {fileID: 6250255465801395676, guid: b962867e080cb6c49b99ffaca73b2d75,
         type: 3}
       propertyPath: m_LocalPosition.x
