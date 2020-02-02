@@ -108,6 +108,10 @@ public class Player : MonoBehaviour
             {
                 SwapWeapon((int)item.GetComponent<DropWeapon>().m_myWeapon);
             }
+            else if (item.GetComponent<TreasureChest>())
+            {
+                item.GetComponent<TreasureChest>().DropWeapon();
+            }
             else
             {
                 RepairSpot spot = item.gameObject.GetComponentInParent<RepairSpot>();
