@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
 
     private void Interact()
     {
-        Collider[] col = Physics.OverlapSphere(transform.position, 1);
+        Collider[] col = Physics.OverlapSphere(transform.position + Vector3.up, 2);
         foreach (Collider item in col)
         {
             if (item.tag == "Sparepart")
