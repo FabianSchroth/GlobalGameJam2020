@@ -13,7 +13,10 @@ public class Player : MonoBehaviour
     public static Player Instance { get { return m_Instance; } set { m_Instance = value; } }
 
     public int m_RemainingHealth;
-    public int m_MaxHealth;
+    public int m_MaxHealth = 3;
+
+    [SerializeField]
+    private Image[] Lifes;
 
     int m_SpareParts = 0;
 
@@ -61,7 +64,7 @@ public class Player : MonoBehaviour
         float hor = moveInput.x;
         float vert = moveInput.y;
 
-        m_Rb.MovePosition(transform .position + new Vector3(hor,0, vert) * m_Speed * Time.deltaTime);
+        m_Rb.MovePosition(transform.position + new Vector3(hor, 0, vert) * m_Speed * Time.deltaTime);
     }
 
     private void LookDirection()
@@ -69,7 +72,7 @@ public class Player : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
         Vector3 playerPos = Camera.main.WorldToScreenPoint(transform.position);
         Vector3 direction = mousePos - playerPos;
-        transform.rotation = Quaternion.Euler(0,Vector3.Angle(Vector3.up, direction) * ((mousePos.x > playerPos.x) ? 1:-1),0);
+        transform.rotation = Quaternion.Euler(0, Vector3.Angle(Vector3.up, direction) * ((mousePos.x > playerPos.x) ? 1 : -1), 0);
     }
 
     public void SwitchRoomFade(float _duration, System.Action _action)
@@ -110,11 +113,11 @@ public class Player : MonoBehaviour
                         if (endRoom.DoorIsOpen)
                         {
                             GameManager.Instance.EndGame();
-                        }                        
+                        }
                     }
                 }
             }
-            
+
         }
     }
 
@@ -125,7 +128,10 @@ public class Player : MonoBehaviour
     public void TakeDamage(int _amount)
     {
         m_RemainingHealth -= _amount;
-
+        if (m_RemainingHealth < 3 && m_RemainingHealth >= 0)
+        {
+            Lifes[m_RemainingHealth].enabled = false;
+        }
         //TODO: Update GUI
 
         if (m_RemainingHealth <= 0)
