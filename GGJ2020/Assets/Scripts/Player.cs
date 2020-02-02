@@ -33,7 +33,10 @@ public class Player : MonoBehaviour
     public Weapon CurrentWeapon { get; set; }
 
     [SerializeField]
-    private Weapon m_Pistol;
+    int m_CurrentWeaponIndx = 0;
+
+    [SerializeField]
+    Weapon[] m_Weapons;
 
     [SerializeField]
     private float m_Speed = 7;
@@ -56,7 +59,14 @@ public class Player : MonoBehaviour
 
     private void Shoot()
     {
-        m_Pistol.Shoot();
+        m_Weapons[m_CurrentWeaponIndx].Shoot();
+    }
+
+    private void SwapWeapon(int _index)
+    {
+        m_Weapons[m_CurrentWeaponIndx].gameObject.SetActive(false);
+        m_Weapons[_index].gameObject.SetActive(true);
+        m_CurrentWeaponIndx = _index;
     }
 
     private void Movement()
@@ -167,6 +177,8 @@ public class Player : MonoBehaviour
     private void Start()
     {
         DontDestroyOnLoad(this.gameObject);
+
+        m_Weapons[m_CurrentWeaponIndx].gameObject.SetActive(true);
     }
 
     private void Update()
