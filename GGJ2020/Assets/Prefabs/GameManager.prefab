@@ -46,6 +46,8 @@ MonoBehaviour:
   m_StageIndex: 0
   m_Player: {fileID: 0}
   m_MoveDirection: 0
+  m_RepairSpotDoneMaterial: {fileID: 2100000, guid: b0f7435003d564a49824bfb13086a108,
+    type: 2}
   m_RoomPrefabs:
   - {fileID: 6504400062981134150, guid: c88534d9b132fe64a9e048a114b112cb, type: 3}
   - {fileID: 6504400062981134150, guid: ae8a41969979f3342a8c489241aa9b33, type: 3}
