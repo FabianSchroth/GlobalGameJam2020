@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public int m_CurrentRoomIndexX = 2;
     public int m_CurrentRoomIndexY = 2;
 
-    private Room[,] m_Map;
+    public Room[,] m_Map;
     public int m_StageIndex;
 
     public Player m_Player;
