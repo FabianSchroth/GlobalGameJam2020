@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -16,6 +17,16 @@ public class Player : MonoBehaviour
 
     int m_SpareParts = 0;
 
+    int SpareParts
+    {
+        get => m_SpareParts;
+        set
+        {
+            m_SparepartText.text = value.ToString();
+            m_SpareParts = value;
+        }
+    }
+
     public Weapon CurrentWeapon { get; set; }
 
     [SerializeField]
@@ -29,6 +40,9 @@ public class Player : MonoBehaviour
     private Vector2 moveInput;
 
     private Rigidbody m_Rb;
+
+    [SerializeField]
+    private Text m_SparepartText;
 
     #endregion
 
