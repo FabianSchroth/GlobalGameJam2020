@@ -35,6 +35,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float m_Speed = 7;
 
+    [SerializeField]
+    private LerpAlpha m_LerpAlpha;
+
     private PlayerControls m_Controls;
 
     private Vector2 moveInput;
@@ -69,6 +72,11 @@ public class Player : MonoBehaviour
         transform.rotation = Quaternion.Euler(0,Vector3.Angle(Vector3.up, direction) * ((mousePos.x > playerPos.x) ? 1:-1),0);
     }
 
+    public void SwitchRoomFade(float _duration, System.Action _action)
+    {
+        m_LerpAlpha.LerpThatAlpha(_duration, true, _action);
+    }
+
     private void Interact()
     {
         Collider[] col = Physics.OverlapSphere(transform.position, 1);
@@ -86,7 +94,8 @@ public class Player : MonoBehaviour
                 {
                     if (spot.RemainingMaterialsToRepair < m_SpareParts)
                     {
-                        m_SpareParts -= spot.RemainingMaterialsToRepair;                        
+                        m_SpareParts -= spot.RemainingMaterialsToRepair;
+                        spot.Repair(spot.RemainingMaterialsToRepair);
                     }
                 }
                 else

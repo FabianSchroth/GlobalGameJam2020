@@ -180,7 +180,7 @@ public class GameManager : MonoBehaviour
             default:
                 break;
         }
-
+        Debug.Log(m_CurrentRoomIndex);
         m_Map[m_CurrentRoomIndex.x, m_CurrentRoomIndex.y].Status = RoomStatus.PlayerInside;
     }
 
@@ -204,6 +204,11 @@ public class GameManager : MonoBehaviour
     public void CheckForEnemySpawnerDrop()
     {
         // TODO: Roll Dice and Spawn Stuff
+    }
+
+    public void SwitchRoomFade(float _duration, System.Action _action)
+    {
+        Player.Instance.SwitchRoomFade(_duration,_action);
     }
 
     /// <summary>

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Room : MonoBehaviour
 {
@@ -178,7 +179,7 @@ public class Room : MonoBehaviour
         switch (GameManager.Instance.m_MoveDirection)
         {
             case MoveDirection.Top:
-                GameManager.Instance.m_Player.transform.position = m_DownSpawnPointPlayer.position + Vector3.up;
+                GameManager.Instance.SwitchRoomFade(1f, () => GameManager.Instance.m_Player.transform.position = m_DownSpawnPointPlayer.position + Vector3.up);
                 // Spawn Up To 3 Enemies
                 if (enemyAmount > 0)
                 {
@@ -207,7 +208,7 @@ public class Room : MonoBehaviour
                 }
                 break;
             case MoveDirection.Down:
-                GameManager.Instance.m_Player.transform.position = m_TopSpawnPointPlayer.position + Vector3.up;
+                GameManager.Instance.SwitchRoomFade(1f, () => GameManager.Instance.m_Player.transform.position = m_TopSpawnPointPlayer.position + Vector3.up);
                 // Spawn Up To 3 Enemies
                 if (enemyAmount > 0)
                 {
@@ -225,7 +226,7 @@ public class Room : MonoBehaviour
                 }
                 break;
             case MoveDirection.Left:
-                GameManager.Instance.m_Player.transform.position = m_RightSpawnPointPlayer.position + Vector3.up;
+                GameManager.Instance.SwitchRoomFade(1f, () => GameManager.Instance.m_Player.transform.position = m_RightSpawnPointPlayer.position + Vector3.up);
                 // Spawn Up To 3 Enemies
                 if (enemyAmount > 0)
                 {
@@ -243,7 +244,7 @@ public class Room : MonoBehaviour
                 }
                 break;
             case MoveDirection.Right:
-                GameManager.Instance.m_Player.transform.position = m_LeftSpawnPointPlayer.position + Vector3.up;
+                GameManager.Instance.SwitchRoomFade(1f, () => GameManager.Instance.m_Player.transform.position = m_LeftSpawnPointPlayer.position + Vector3.up);
                 // Spawn Up To 3 Enemies
                 if (enemyAmount > 0)
                 {
