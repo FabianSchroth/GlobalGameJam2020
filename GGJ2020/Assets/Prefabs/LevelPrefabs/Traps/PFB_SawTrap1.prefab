@@ -44,6 +44,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.25, y: 1.85, z: 1.85}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &389612449479836549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4995417309361670990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793babc7ba8a7fa48a78987397e0b36b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RotationSpeed: 180
 --- !u!1 &9082847792134581789
 GameObject:
   m_ObjectHideFlags: 0
@@ -54,7 +67,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4553235948793365473}
   m_Layer: 0
-  m_Name: PFB_SawTrap
+  m_Name: PFB_SawTrap1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -221,6 +234,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0a4a267ffeb85240b3033898f82a45b, type: 3}
+--- !u!1 &4995417309361670990 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: f0a4a267ffeb85240b3033898f82a45b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3923379116989502023}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8288893031080393053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: f0a4a267ffeb85240b3033898f82a45b,

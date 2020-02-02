@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 8257321904559510014}
   - component: {fileID: 124372955236248225}
   - component: {fileID: 8497097304124269080}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GratePlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
