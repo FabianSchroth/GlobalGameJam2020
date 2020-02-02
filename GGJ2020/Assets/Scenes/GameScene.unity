@@ -559,12 +559,6 @@ PrefabInstance:
       propertyPath: m_Player
       value: 
       objectReference: {fileID: 585301598}
-    - target: {fileID: 7631683266681322399, guid: 57eb501ebff83724abce4ca5c8e087bc,
-        type: 3}
-      propertyPath: m_EndRoomPoIPrefab
-      value: 
-      objectReference: {fileID: 7083616120144105616, guid: 41983c880939169419b6249c16d6e645,
-        type: 3}
     - target: {fileID: 9204683890775867573, guid: 57eb501ebff83724abce4ca5c8e087bc,
         type: 3}
       propertyPath: m_Name

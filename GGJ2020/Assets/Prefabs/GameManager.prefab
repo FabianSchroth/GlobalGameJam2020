@@ -48,7 +48,7 @@ MonoBehaviour:
   m_StageIndex: 0
   m_Player: {fileID: 0}
   m_MoveDirection: 0
-  m_RepairSpotDoneMaterial: {fileID: 2100000, guid: b0f7435003d564a49824bfb13086a108,
+  m_RepairSpotDoneMaterial: {fileID: 2100000, guid: 01145fefed20d624fba838c1581a71cb,
     type: 2}
   m_RoomPrefabs:
   - {fileID: 6504400062981134150, guid: c88534d9b132fe64a9e048a114b112cb, type: 3}
@@ -109,5 +109,6 @@ MonoBehaviour:
   m_TreasureRoomPoIPrefab: {fileID: 1827866813022906304, guid: 0f7289b8a2477d54393950cde4b94b5b,
     type: 3}
   m_RepairSpotsToRepair: 0
-  m_EndRoom: {fileID: 0}
+  m_EndRoom: {fileID: 6433354511139227211, guid: 41983c880939169419b6249c16d6e645,
+    type: 3}
   m_Cursor: {fileID: 2800000, guid: 2452c55d39cd3f54cbea4b9b5fad0331, type: 3}
