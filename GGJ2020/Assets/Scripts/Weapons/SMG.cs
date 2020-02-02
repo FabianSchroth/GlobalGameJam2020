@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SMG : MonoBehaviour
+public class SMG : Weapon
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Shoot()
     {
-        
+        Projectile proj = Instantiate(m_ProjectilePrefab, m_SpawnPointProjectile.position, transform.rotation);
+        StartCoroutine(DelayedShot());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator DelayedShot()
     {
-        
+        yield return new WaitForSeconds(0.05f);
+        Projectile proj = Instantiate(m_ProjectilePrefab, m_SpawnPointProjectile.position, transform.rotation);
     }
 }

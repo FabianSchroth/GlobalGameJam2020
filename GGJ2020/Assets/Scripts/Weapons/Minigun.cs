@@ -2,17 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Minigun : MonoBehaviour
+public class Minigun : Weapon
 {
-    // Start is called before the first frame update
-    void Start()
+    private bool shoot = false;
+
+    [SerializeField]
+    float m_ShotsPerSec = 10;
+
+    float timer = 0;
+
+    public override void Shoot()
     {
-        
+        shoot = !shoot;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (shoot)
+        {
+
+            timer += Time.deltaTime;
+
+            if (timer >= (1 / m_ShotsPerSec))
+            {
+                Projectile proj = Instantiate(m_ProjectilePrefab, m_SpawnPointProjectile.position, transform.rotation);
+            }
+        }
     }
 }

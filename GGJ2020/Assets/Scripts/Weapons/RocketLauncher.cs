@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RocketLauncher : MonoBehaviour
+public class RocketLauncher : Weapon
 {
-    // Start is called before the first frame update
-    void Start()
+    private float m_Interval = 1f;
+    private float m_Timer = 0;
+
+    public override void Shoot()
     {
-        
+        if (m_Timer > m_Interval)
+        {
+            m_Timer = 0;
+            Projectile proj = Instantiate(m_ProjectilePrefab, m_SpawnPointProjectile.position, transform.rotation);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        m_Timer += Time.deltaTime;
     }
 }

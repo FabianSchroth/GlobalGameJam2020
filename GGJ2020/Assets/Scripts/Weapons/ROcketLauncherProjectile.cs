@@ -2,22 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicProjectile : Projectile
+public class ROcketLauncherProjectile : Projectile
 {
     [SerializeField]
     private int bounces = 0;
+    [SerializeField]
+    private float m_Radius;
 
     protected override void HitSomething(Collision _collision)
     {
-        Enemy enemy =_collision.gameObject.GetComponent<Enemy>();
-        Player player = _collision.gameObject.GetComponent<Player>();
-        if (enemy)
+        Collider[] col = Physics.OverlapSphere(transform.position,m_Radius);
+        foreach (Collider item in col)
         {
-            enemy.TakeDamage(1);
-        }
-        else if (player)
-        {
-            player.TakeDamage(1);
+            Player player = item.gameObject.GetComponent<Player>();
+            if (player)
+            {
+                player.TakeDamage(1);
+            }
+            Enemy enemy = item.gameObject.GetComponent<Enemy>();
+            if (enemy)
+            {
+                enemy.TakeDamage(1);
+            }
         }
         if (bounces < 1)
         {
