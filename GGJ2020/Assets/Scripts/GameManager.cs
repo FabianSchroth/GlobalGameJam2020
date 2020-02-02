@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public DropWeapon[] DropWeapons;
 
+    public GameObject m_Explosion;
+
     public Room[,] m_Map;
     public int m_StageIndex;
 

@@ -11,6 +11,7 @@ public class ROcketLauncherProjectile : Projectile
 
     protected override void HitSomething(Collision _collision)
     {
+        Instantiate(GameManager.Instance.m_Explosion, transform.position, transform.rotation);
         Collider[] col = Physics.OverlapSphere(transform.position,m_Radius);
         foreach (Collider item in col)
         {

@@ -338,6 +338,8 @@ MonoBehaviour:
   - {fileID: 6250245787227379211, guid: 5093153998f34244b9a8cc28caa3d61d, type: 3}
   - {fileID: 5442099401553607602, guid: 44a97b2f3dca84c45954bdd6ec8f7e0a, type: 3}
   - {fileID: 6634861174022697286, guid: 840e0e1e8ac1a2c47960e30bf13e8837, type: 3}
+  m_Explosion: {fileID: 2703977066612048119, guid: ff963d13cd51ab34fbe45689d720c57a,
+    type: 3}
   m_StageIndex: 0
   m_Player: {fileID: 0}
   m_MoveDirection: 0
