@@ -23,6 +23,8 @@ public abstract class Enemy : MonoBehaviour
     protected void Awake()
     {
         m_Agent = GetComponent<NavMeshAgent>();
+
+        RemainingHealth = 2;
     }
 
     /// <summary>
@@ -35,7 +37,7 @@ public abstract class Enemy : MonoBehaviour
 
         if (RemainingHealth <= 0)
         {
-            Spawner.OnEnemyKilled();
+            //Spawner.OnEnemyKilled();
             Destroy(this.gameObject);
         }
     }

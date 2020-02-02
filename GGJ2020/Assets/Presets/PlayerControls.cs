@@ -33,6 +33,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""355948a2-aae3-460a-9156-f209436af346"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -101,6 +109,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3f2a25e2-6f08-45f8-b2b3-c450b93da763"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -117,6 +136,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_PlayerMaps = asset.FindActionMap("PlayerMaps", throwIfNotFound: true);
         m_PlayerMaps_Shoot = m_PlayerMaps.FindAction("Shoot", throwIfNotFound: true);
         m_PlayerMaps_Movement = m_PlayerMaps.FindAction("Movement", throwIfNotFound: true);
+        m_PlayerMaps_Interact = m_PlayerMaps.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -168,12 +188,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private IPlayerMapsActions m_PlayerMapsActionsCallbackInterface;
     private readonly InputAction m_PlayerMaps_Shoot;
     private readonly InputAction m_PlayerMaps_Movement;
+    private readonly InputAction m_PlayerMaps_Interact;
     public struct PlayerMapsActions
     {
         private @PlayerControls m_Wrapper;
         public PlayerMapsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Shoot => m_Wrapper.m_PlayerMaps_Shoot;
         public InputAction @Movement => m_Wrapper.m_PlayerMaps_Movement;
+        public InputAction @Interact => m_Wrapper.m_PlayerMaps_Interact;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMaps; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -189,6 +211,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Movement.started -= m_Wrapper.m_PlayerMapsActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_PlayerMapsActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_PlayerMapsActionsCallbackInterface.OnMovement;
+                @Interact.started -= m_Wrapper.m_PlayerMapsActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_PlayerMapsActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_PlayerMapsActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_PlayerMapsActionsCallbackInterface = instance;
             if (instance != null)
@@ -199,6 +224,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
@@ -216,5 +244,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     {
         void OnShoot(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
 }

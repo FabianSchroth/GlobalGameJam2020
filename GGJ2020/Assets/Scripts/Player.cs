@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     int m_RemainingHealth;
     int m_MaxHealth;
 
+    int m_SpareParts = 0;
+
     public Weapon CurrentWeapon { get; set; }
 
     [SerializeField]
@@ -53,6 +55,31 @@ public class Player : MonoBehaviour
         transform.rotation = Quaternion.Euler(0,Vector3.Angle(Vector3.up, direction) * ((mousePos.x > playerPos.x) ? 1:-1),0);
     }
 
+    private void Interact()
+    {
+        Collider[] col = Physics.OverlapSphere(transform.position, 1);
+        foreach (Collider item in col)
+        {
+            if (item.tag == "Sparepart")
+            {
+                Destroy(item.gameObject);
+                m_SpareParts++;
+            }
+            else
+            {
+                RepairSpot spot = item.gameObject.GetComponent<RepairSpot>();
+                if (spot)
+                {
+                    if (spot.RemainingMaterialsToRepair < m_SpareParts)
+                    {
+                        m_SpareParts -= spot.RemainingMaterialsToRepair;                        
+                    }
+                }
+
+            }
+        }
+    }
+
     /// <summary>
     /// Called when the player got hit by an enemy
     /// </summary>
@@ -88,6 +115,8 @@ public class Player : MonoBehaviour
         m_Controls.PlayerMaps.Movement.canceled += _ => moveInput = m_Controls.PlayerMaps.Movement.ReadValue<Vector2>();
 
         m_Controls.PlayerMaps.Shoot.performed += _ => Shoot();
+
+        m_Controls.PlayerMaps.Interact.performed += _ => Interact();
     }
 
     private void Start()
