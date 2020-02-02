@@ -9,6 +9,8 @@ public class RepairSpot : PointOfInterest
 
     public int RemainingMaterialsToRepair = 10;
 
+    public GameObject RepairIcon;
+
     #endregion
 
     #region Functions
@@ -35,6 +37,7 @@ public class RepairSpot : PointOfInterest
 
         if (RemainingMaterialsToRepair <= 0)
         {
+            RepairIcon.SetActive(false);
             OnClearedInterest();
             this.m_Room.Status = RoomStatus.Cleared;
         }

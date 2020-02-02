@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RotationSpeed: 15
+  m_Axis: 1
 --- !u!114 &967729958098476641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26,6 +27,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RotationSpeed: 15
+  m_Axis: 1
 --- !u!1 &8087409817033252056
 GameObject:
   m_ObjectHideFlags: 0
